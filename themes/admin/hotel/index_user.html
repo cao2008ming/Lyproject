@@ -1,0 +1,17 @@
+{extend name="base" /}
+{block name="body"}
+<style>
+    .text-center{margin: 50px auto}
+</style>
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">添加酒店</li>
+        </ul>
+        <div class="layui-tab-content">
+            <a class="layui-btn layui-btn-big text-center" href="{:url('admin/hotel/add')}">创建酒店信息</a>
+        </div>
+    </div>
+</div>
+{/block}

@@ -1,0 +1,118 @@
+{extend name="base" /}
+{block name='title'}用户注册 -{/block}
+{block name="css"}
+<link rel="stylesheet" href="__CSS__/home/register.css?{$Think.config.update_version}">
+{/block}
+{block name="body"}
+<div class="layui-main">
+    <div class="register-box">
+        <div class="title row">
+            <div class="col-md-6">
+                <h3><i class="layui-icon" style="font-size: 30px; color: #d1d1d1;">&#xe63c;</i> 用户注册</h3>
+            </div>
+            <div class="col-md-6">
+                <span>我已经注册，</span>
+                <a href="{:url('/home/user/login')}">马上登录</a>
+            </div>
+        </div>
+        <div class="sign-box">
+            <form class="layui-form" action="{:url('/home/user/register')}" method="post">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">性别</label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="gender" value="男" title="男">
+                        <input type="radio" name="gender" value="女" title="女" checked>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">登录账号</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="username" id="username" required lay-verify="required" placeholder="登录账号"
+                               class="layui-input">
+                    </div>
+                    <div class="layui-form-mid layui-word-aux">
+                        <span class="layui-color-success" id="username_success" style="display: none">恭喜，该账号可以注册</span>
+                        <span class="layui-color-red" id="username_error" style="display: none">该账号已经存在</span>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">登录密码</label>
+                    <div class="layui-input-inline">
+                        <input type="password" name="password" required lay-verify="password" placeholder="请输入密码"
+                               id="password" class="layui-input">
+                    </div>
+                    <div class="layui-form-mid layui-word-aux">
+                        <div id="level" class="pw-strength">
+                            <div class="pw-bar"></div>
+                            <div class="pw-bar-on"></div>
+                            <div class="pw-txt">
+                                <span>弱</span>
+                                <span>中</span>
+                                <span>强</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">确认密码</label>
+                    <div class="layui-input-inline">
+                        <input type="password" name="password1" required lay-verify="password1" placeholder="再次确认密码"
+                               id="password1" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">联系手机</label>
+                    <div class="layui-input-inline">
+                        <input type="number" name="mobile" required lay-verify="required" placeholder="必填" id="mobile"
+                               class="layui-input">
+                    </div>
+                    <div class="layui-form-mid layui-word-aux">
+                        <span class="layui-color-success" id="mobile_success" style="display: none">该手机可以注册</span>
+                        <span class="layui-color-red" id="mobile_error" style="display: none">
+                            该手机已注册，你可以
+                            <a href="{:url('/home/user/resetpwd')}">重置密码</a>
+                        </span>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">短信验证码</label>
+                    <div class="layui-input-inline">
+                        <input type="hidden" id="sms_id" value="0">
+                        <input type="number"  required lay-verify="required" placeholder="必填" id="yzm"
+                               class="layui-input">
+                    </div>
+                    <div class="layui-form-mid layui-word-aux" style="width: 150px;">
+                        <a class="send_code layui-btn layui-btn-small layui-btn-normal layui-btn-disabled"
+                           id="send_code">获取验证码</a>
+                        <!--<div class="l-captcha" data-width="100%" data-site-key="a6bd8dae1e92880b7f4684ef64ce441b" data-callback="getResponse"></div>-->
+                        <!--<div class="g-recaptcha" data-sitekey="6LdvXygUAAAAANZiPsnk7JvOtPxQYk11-2neiMl6"></div>-->
+                        <div id="captcha"></div>
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">协议认可</label>
+                    <div class="layui-input-inline" style="width: 40px;">
+                        <input type="checkbox" name="switch" lay-skin="switch" checked>
+                    </div>
+                    <div class="layui-form-mid layui-word-aux">
+                        <a>同意本站《用户注册协议》</a>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit lay-filter="submit">立即提交</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+{/block}
+{block name="script"}
+<script src="__JS__/home/register.js?{$Think.config.update_version}"></script>
+<script src="__JS__/gt.js?{$Think.config.update_version}"></script>
+<script src="__JS__/geektest.js?{$Think.config.update_version}"></script>
+{/block}

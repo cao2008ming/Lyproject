@@ -1,0 +1,232 @@
+{extend name="base" /}
+{block name="css"}
+<link rel="stylesheet" href="__CSS__/home/banner.css">
+<link rel="stylesheet" href="__CSS__/home/routes.css">
+{/block}
+{block name="body"}
+    <div id="slideBox" class="slideBox">
+        <div class="hd">
+            <ul><li></li><li></li><li></li></ul>
+        </div>
+        <div class="bd">
+            <ul>
+                {volist name='slide' id='vo'}
+                    <li style="background: url({$vo.image}) 50% 0px no-repeat;">
+                        <a href="{$vo.link}" target="{$vo.target}" title="{$vo.name}"></a>
+                    </li>
+                {/volist}
+            </ul>
+        </div>
+    </div>
+    <div class="layui-main">
+        <div class="search">
+            <ul>
+                <li class="item-search">
+                    <div class="item-label">天数</div>
+                    <ul>
+                        <li class="layui-this">不限</li>
+                        <li>1-2天</li>
+                        <li>3-4天</li>
+                        <li>5-7天</li>
+                        <li>7天以上</li>
+                    </ul>
+                </li>
+                <li class="item-search">
+                    <div class="item-label">时间安排</div>
+                    <ul>
+                        <li class="layui-this">不限</li>
+                        <li>紧凑，多玩景点</li>
+                        <li>适中，不要太紧</li>
+                        <li>宽松，休闲为主</li>
+                    </ul>
+                </li>
+                <li class="item-search">
+                    <div class="item-label">价格</div>
+                    <ul>
+                        <li class="layui-this">不限</li>
+                        <li>400RMB以下</li>
+                        <li>400-1000RMB</li>
+                        <li>1100-1500RMB</li>
+                        <li>1500RMB以上</li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+        <div class="row">
+            <div class="col-md-8 left-box">
+                <div class="list-tool">
+                    <div class="btn-group btn-group-lg" role="group" aria-label="Large button group">
+                        <button type="button" class="btn btn-default">综合推荐</button>
+                        <button type="button" class="btn btn-default">好评⥥</button>
+                        <button type="button" class="btn btn-default">价格⥣</button>
+                    </div>
+                    <span>共有888个行程</span>
+                </div>
+                <div class="list-box">
+                    <ul class="list">
+                        <li class="row">
+                           <div class="col-md-3 thumb-box">
+                               <a href="#">
+                                   <img src="//dimg11.c-ctrip.com/images/hotel/1000/7/d8c01ae67fc14dd0a75396056310f203_R_300_225.jpg" alt="">
+                               </a>
+                           </div>
+                           <div class="col-md-7 info-box">
+                               <p class="title">铜仁梵净山2日游</p>
+                               <p class="price">
+                                   <span>行程适中</span>
+                                   <span>9月出发</span>
+                                   <span>500-800元/人</span>
+                                   <span><i class="jinghua"></i> </span>
+                               </p>
+                               <p class="line">
+                                   <span>凤凰古城</span>⇀
+                                   <span>凤凰古城</span>⇀
+                                   <span>梵净山</span>
+                               </p>
+                               <p class="author">本行程由 <span>官网</span> 发起</p>
+                           </div>
+                           <div class="col-md-2 button-box">
+                               <a href="#"><span>我也要去</span></a>
+                           </div>
+                        </li>
+                        <li class="row">
+                           <div class="col-md-3 thumb-box">
+                               <a href="#">
+                                   <img src="//dimg11.c-ctrip.com/images/hotel/1000/7/d8c01ae67fc14dd0a75396056310f203_R_300_225.jpg" alt="">
+                               </a>
+                           </div>
+                           <div class="col-md-7 info-box">
+                               <p class="title">铜仁梵净山2日游</p>
+                               <p class="price">
+                                   <span>行程适中</span>
+                                   <span>9月出发</span>
+                                   <span>500-800元/人</span>
+                                   <span><i class="jinghua"></i> </span>
+                               </p>
+                               <p class="line">
+                                   <span>凤凰古城</span>⇀
+                                   <span>凤凰古城</span>⇀
+                                   <span>梵净山</span>
+                               </p>
+                               <p class="author">本行程由 <span>官网</span> 发起</p>
+                           </div>
+                           <div class="col-md-2 button-box">
+                               <a href="#"><span>我也要去</span></a>
+                           </div>
+                        </li>
+                        <li class="row">
+                           <div class="col-md-3 thumb-box">
+                               <a href="#">
+                                   <img src="//dimg11.c-ctrip.com/images/hotel/1000/7/d8c01ae67fc14dd0a75396056310f203_R_300_225.jpg" alt="">
+                               </a>
+                           </div>
+                           <div class="col-md-7 info-box">
+                               <p class="title">铜仁梵净山2日游</p>
+                               <p class="price">
+                                   <span>行程适中</span>
+                                   <span>9月出发</span>
+                                   <span>500-800元/人</span>
+                                   <span><i class="jinghua"></i> </span>
+                               </p>
+                               <p class="line">
+                                   <span>凤凰古城</span>⇀
+                                   <span>凤凰古城</span>⇀
+                                   <span>梵净山</span>
+                               </p>
+                               <p class="author">本行程由 <span>官网</span> 发起</p>
+                           </div>
+                           <div class="col-md-2 button-box">
+                               <a href="#"><span>我也要去</span></a>
+                           </div>
+                        </li>
+                        <li class="row">
+                           <div class="col-md-3 thumb-box">
+                               <a href="#">
+                                   <img src="//dimg11.c-ctrip.com/images/hotel/1000/7/d8c01ae67fc14dd0a75396056310f203_R_300_225.jpg" alt="">
+                               </a>
+                           </div>
+                           <div class="col-md-7 info-box">
+                               <p class="title">铜仁梵净山2日游</p>
+                               <p class="price">
+                                   <span>行程适中</span>
+                                   <span>9月出发</span>
+                                   <span>500-800元/人</span>
+                                   <span><i class="jinghua"></i> </span>
+                               </p>
+                               <p class="line">
+                                   <span>凤凰古城</span>⇀
+                                   <span>凤凰古城</span>⇀
+                                   <span>梵净山</span>
+                               </p>
+                               <p class="author">本行程由 <span>官网</span> 发起</p>
+                           </div>
+                           <div class="col-md-2 button-box">
+                               <a href="#"><span>我也要去</span></a>
+                           </div>
+                        </li>
+                        <li class="row">
+                           <div class="col-md-3 thumb-box">
+                               <a href="#">
+                                   <img src="//dimg11.c-ctrip.com/images/hotel/1000/7/d8c01ae67fc14dd0a75396056310f203_R_300_225.jpg" alt="">
+                               </a>
+                           </div>
+                           <div class="col-md-7 info-box">
+                               <p class="title">铜仁梵净山2日游</p>
+                               <p class="price">
+                                   <span>行程适中</span>
+                                   <span>9月出发</span>
+                                   <span>500-800元/人</span>
+                                   <span><i class="jinghua"></i> </span>
+                               </p>
+                               <p class="line">
+                                   <span>凤凰古城</span>⇀
+                                   <span>凤凰古城</span>⇀
+                                   <span>梵净山</span>
+                               </p>
+                               <p class="author">本行程由 <span>官网</span> 发起</p>
+                           </div>
+                           <div class="col-md-2 button-box">
+                               <a href="#"><span>我也要去</span></a>
+                           </div>
+                        </li>
+                        <li class="row">
+                           <div class="col-md-3 thumb-box">
+                               <a href="#">
+                                   <img src="//dimg11.c-ctrip.com/images/hotel/1000/7/d8c01ae67fc14dd0a75396056310f203_R_300_225.jpg" alt="">
+                               </a>
+                           </div>
+                           <div class="col-md-7 info-box">
+                               <p class="title">铜仁梵净山2日游</p>
+                               <p class="price">
+                                   <span>行程适中</span>
+                                   <span>9月出发</span>
+                                   <span>500-800元/人</span>
+                                   <span><i class="jinghua"></i> </span>
+                               </p>
+                               <p class="line">
+                                   <span>凤凰古城</span>⇀
+                                   <span>凤凰古城</span>⇀
+                                   <span>梵净山</span>
+                               </p>
+                               <p class="author">本行程由 <span>官网</span> 发起</p>
+                           </div>
+                           <div class="col-md-2 button-box">
+                               <a href="#"><span>我也要去</span></a>
+                           </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4 right-box">
+
+            </div>
+        </div>
+    </div>
+{/block}
+{block name="script"}
+<script src="__JS__/home/jquery.SuperSlide.2.1.1.js"></script>
+<script src="__JS__/home/switch.js"></script>
+<script src="__JS__/home/common.js"></script>
+<script src="__JS__/home/banner.js"></script>
+{/block}

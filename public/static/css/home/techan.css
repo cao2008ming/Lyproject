@@ -1,0 +1,30 @@
+@charset "utf-8";
+/*酒店页面幻灯*/
+/*@Author torans qq:321870617@qq.com*/
+
+
+/*快速搜索*/
+.search{text-align: center;margin: 70px 0;color: #cdcdcd;font-size: 20px;}
+.search h3{font-size: 38px;color: #666666}
+.search span{font-size: 16px;font-weight: 100;display: block}
+.search .layui-form{margin-top: 36px;}
+.search .submit{width: 100px;}
+.search .input{width: 615px;}
+.search .input input{width: 615px;height: 44px;line-height: 44px;box-shadow: 0 2px 5px 0 rgba(0,0,0,.1)}
+
+/*热门城市*/
+.citys{text-align: center;margin: 70px 0;color: #cdcdcd;font-size: 20px;}
+.citys h3{font-size: 38px;color: #666666}
+.citys span{font-size: 16px;font-weight: 100;display: block}
+.citys .citys-box{margin: 60px 0;}
+
+
+/*推荐列表*/
+.tuijian{padding: 70px 0;color: #cdcdcd;font-size: 20px;background: #f4f4f4}
+.tuijian h3{font-size: 38px;color: #666666;text-align: center}
+.tuijian .sub-title{font-size: 16px;font-weight: 100;display: block;text-align: center;margin-bottom: 60px;}
+.tuijian .caption h6{text-align: left;color: #666666;font-size: 18px;}
+.tuijian .caption .price{margin-bottom: 32px;margin-top: 12px;}
+.tuijian .caption span:first-child{float: left;color: #fe8a00;margin-top: -6px;}
+.tuijian .caption span:first-child b{font-size: 24px;}
+.tuijian .caption span:last-child{float: right;color:#666666 }

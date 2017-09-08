@@ -1,0 +1,58 @@
+{extend name="base" /}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">车辆管理</li>
+            <li class=""><a href="{:url('admin/bus/add')}">发布车辆</a></li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <table class="layui-table">
+                    <thead>
+                    <tr>
+                        <th>标题</th>
+                        <th>缩略图</th>
+                        <th>价格</th>
+                        <th>车型</th>
+                        <th>加入时间</th>
+                        <th>最后更新</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {foreach name="bus_list" item="vo"}
+                    <tr>
+                        <td>
+                            <a class="info" href="{:url('admin/bus/info',['id'=>$vo['bus_id']])}">{$vo.bus_name}</a>
+                        </td>
+                        <td>
+                            <img src="{$vo.bus_thumb}" width="80px">
+                        </td>
+                        <td>{$vo.bus_price} 元/天</td>
+                        <td>{$vo.bus_zuowei} 座/{$vo.bus_dangwei|get_dangwei_info}</td>
+                        <td>{$vo.create_time}</td>
+                        <td>{$vo.update_time}</td>
+                        <td>{$vo.status|get_status_info}</td>
+                        <td>
+                            {if condition="$vo.status = 1"}
+                            <a href="{:url('admin/bus/close',['id'=>$vo['bus_id']])}" class="layui-btn layui-btn-warm layui-btn-mini">禁用</a>
+                            {elseif condition="$vo.status = 2"/}
+                            <a href="{:url('admin/bus/close',['id'=>$vo['bus_id']])}" class="layui-btn layui-btn-warm layui-btn-mini">禁用</a>
+                            {else/}
+                            <a href="{:url('admin/bus/open',['id'=>$vo['bus_id']])}" class="layui-btn layui-btn-success layui-btn-mini">审核</a>
+                            {/if}
+                            <a href="{:url('admin/bus/edit',['id'=>$vo['bus_id']])}" class="layui-btn layui-btn-normal layui-btn-mini">编辑</a>
+                            <a href="{:url('admin/bus/delete',['id'=>$vo['bus_id']])}" class="layui-btn layui-btn-danger layui-btn-mini ajax-delete">删除</a>
+                        </td>
+                    </tr>
+                    {/foreach}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

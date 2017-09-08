@@ -1,0 +1,123 @@
+{extend name="base" /}
+{block name="css"}
+<link rel="stylesheet" href="__CSS__/home/banner.css?{$Think.config.update_version}">
+<link rel="stylesheet" href="__CSS__/home/bus.css?{$Think.config.update_version}">
+{/block}
+{block name="body"}
+    <div id="slideBox" class="slideBox">
+        <div class="hd">
+            <ul><li></li><li></li><li></li></ul>
+        </div>
+        <div class="bd">
+            <ul>
+                {volist name='slide' id='vo'}
+                    <li style="background: url({$vo.image}) 50% 0px no-repeat;">
+                        <a href="{$vo.link}" target="{$vo.target}" title="{$vo.name}"></a>
+                    </li>
+                {/volist}
+            </ul>
+        </div>
+        <div class="layui-main head">
+            <div class="layui-tab search">
+                <ul class="layui-tab-title">
+                    <li class="layui-this">省内租车</li>
+                    <!--<li>国际酒店</li>-->
+                </ul>
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <form class="layui-form " action="">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">取车时间</label>
+                                <div class="layui-input-block">
+                                    <input name="title" required  lay-verify="required" placeholder="yyyy-mm-dd" class="layui-input" id="LAY_demorange_s">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">取车地点</label>
+                                <div class="layui-input-block">
+                                    <select name="quiz1">
+                                        <option value="">请选择省</option>
+                                        <option value="浙江" selected="">浙江省</option>
+                                        <option value="你的工号">江西省</option>
+                                        <option value="你最喜欢的老师">福建省</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">还车时间</label>
+                                <div class="layui-input-block">
+                                    <input name="title" required  lay-verify="required" placeholder="yyyy-mm-dd" class="layui-input" id="LAY_demorange_e">
+                                </div>
+                            </div>
+                            <button class="layui-btn layui-btn-warn" style="margin-left: 212px;">立即搜索</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="nav-bar">
+        <div class="layui-main">
+            <div class="row">
+                <div class="col-md-3 bar-item">
+                    <i class="bus-icon bus-icon-1"></i>
+                    <span>100+车型</span>
+                </div>
+                <div class="col-md-3 bar-item">
+                    <i class="bus-icon bus-icon-2"></i>
+                    <span>100+网点</span>
+                </div>
+                <div class="col-md-3 bar-item">
+                    <i class="bus-icon bus-icon-3"></i>
+                    <span>100%保险</span>
+                </div>
+                <div class="col-md-3 bar-item">
+                    <i class="bus-icon bus-icon-4"></i>
+                    <span>无限里程</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="layui-main">
+        <!--热门租车-->
+       <div class="hot">
+           <h3>热门•贵州租车</h3>
+           <ul>
+               <li class="line-title">为您推荐</li>
+               {volist name='citys' id='vo'}
+               <li><a href="#">{$vo.name}</a></li>
+               {/volist}
+               <li><a href="#">更多>></a></li>
+
+           </ul>
+           <div class="row list">
+               {volist name='buses' id='to'}
+               <div class="col-md-4 list-item">
+                   <div class="item-box">
+                       <a href="{:url('/home/bus/info',['bus_id'=>$to.bus_id])}">
+                           <img src="{$to.bus_thumb}" alt="{$to.bus_name}">
+                           <div class="item-title">
+                               <p class="title">{$to.bus_name}</p>
+                               <p class="price">
+                                   <small>￥</small>
+                                   <span class="money">{$to.bus_price}</span>
+                                   /起
+                               </p>
+                           </div>
+                       </a>
+                   </div>
+               </div>
+               {/volist}
+           </div>
+       </div>
+    </div>
+{/block}
+{block name="script"}
+<script src="__JS__/home/jquery.SuperSlide.2.1.1.js"></script>
+<script src="__JS__/home/switch.js"></script>
+<script src="__JS__/home/common.js?{$Think.config.update_version}"></script>
+<script src="__JS__/home/bus.js?{$Think.config.update_version}"></script>
+<script src="__JS__/home/banner.js?{$Think.config.update_version}"></script>
+{/block}

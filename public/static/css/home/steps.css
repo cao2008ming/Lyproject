@@ -1,0 +1,48 @@
+/*分步骤*/
+.status-bar {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: table;
+    width: 800px;
+    border-radius: 1px;
+    overflow: hidden;
+}
+.status-bar li {
+    background: #656565;
+    display: table-cell;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+}
+.status-bar li .triangle-right-bg {
+    display: inline-block;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    position: absolute;
+    z-index: 1;
+    border-width: 18px;
+    right: -36px;
+    border-color: transparent transparent transparent #444;
+    top: -3px;
+}
+.status-bar li .triangle-right {
+    display: inline-block;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 15px;
+    position: absolute;
+    right: -30px;
+    z-index: 1;
+    border-color: transparent transparent transparent #656565;
+}
+.status-bar li.checked {
+    background: #2195ec;
+}
+.status-bar li.checked .triangle-right {
+    border-color: transparent transparent transparent #2195ec;
+}

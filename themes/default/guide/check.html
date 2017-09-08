@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>预订导游</title>
+    <link rel="stylesheet" href="__CSS__/row.css">
+    <link rel="stylesheet" href="__CSS__/js/layui/css/layui.css" media="all">
+    <link href='__CSS__/calender/fullcalendar.css' rel='stylesheet'/>
+    <link href='__CSS__/calender/fullcalendar.print.min.css' rel='stylesheet' media='print'/>
+    <link rel="stylesheet" href="__CSS__/home/bus_info.css?{$Think.config.update_version}">
+</head>
+<body>
+    <div class="layui-main">
+        <div class="row">
+            <div class="col-md-2">
+                <div id='calendar'></div>
+            </div>
+            <div class="col-md-5">
+                ssss
+            </div>
+        </div>
+    </div>
+</body>
+<script src="__JS__/layui/lay/dest/layui.all.js"></script>
+<script src='__JS__/calender/lib/moment.min.js'></script>
+<script src='__JS__/calender/lib/jquery.min.js'></script>
+<script src='__JS__/calender/fullcalendar.js'></script>
+<script src='__JS__/calender/locale/zh-cn.js'></script>
+<script>
+    //日历
+    $(document).ready(function () {
+        var d = new Date();
+        var current = d.getFullYear() + "-0" + (d.getMonth() + 1) + "-0" + d.getDate();
+        $('#calendar').fullCalendar({
+            header: {
+                left: 'prev',
+                center: 'title',
+                right: 'next'
+            },
+            defaultDate: current,
+            firstDay: 7,
+            height: 454,
+            events: "{:url('/api/busplan/getplan')}",
+        });
+    });
+</script>
+</html>

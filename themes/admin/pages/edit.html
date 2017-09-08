@@ -1,0 +1,73 @@
+{extend name="base" /}
+{block name="css"}
+<style>
+    #id_photo_a_view,#id_photo_b_view,#zizhi_view{width: 392px;height: 232px;border: 1px solid #009688;}
+    #avatar_view{width: 200px;height: 200px;border-radius: 100%;}
+    .photo_upbar{position: absolute;top: 50%;left: 25%;margin: -18px 0 0 -56px;}
+    .avatar_upbar{position: absolute;top: 50%;left: 15%;margin: -18px 0 0 -56px;}
+    .photo_upbar .layui-upload-button {color: rgba(255,255,255,1);color: #009688}
+</style>
+{/block}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class=""><a href="{:url('admin/pages/index')}">单页管理</a></li>
+            <li class=""><a href="{:url('admin/pages/add')}">添加单页</a></li>
+            <li class="layui-this">编辑单页</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form form-container" action="{:url('admin/pages/update')}" method="post">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">单页名称</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="name" value="{$info.name}" required   lay-verify="required" placeholder="如：about" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">单页标题</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="title" value="{$info.title}" required  lay-verify="required" placeholder="如：关于我们" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">页面内容</label>
+                        <div class="layui-input-block">
+                            <textarea name="content"  class="layui-textarea" id="content">
+                                {$info.content}
+                            </textarea>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">状态</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="status" value="1"  {if condition="$info.status eq 1"}checked="checked"{/if} title="显示">
+                            <input type="radio" name="status" value="0"  {if condition="$info.status eq 0"}checked="checked"{/if} title="不显示">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <input type="hidden" name="id" value="{$info.id}">
+                            <button class="layui-btn" lay-submit lay-filter="*">保存</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+    layui.use('layedit', function(){
+        var layedit = layui.layedit;
+        layedit.build('content'); //建立编辑器
+    });
+</script>
+
+{/block}

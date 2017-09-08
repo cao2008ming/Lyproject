@@ -1,0 +1,32 @@
+/*后台酒店样式*/
+
+.hotel_title{color: #f43838;font-weight: bolder}
+.hotel .left{width: 934px;background: #eee;padding:3px}
+.hotel .tit{position: relative;text-align:center;display:block;border:1px solid #e1e1e1;border-bottom:0;background:#FCFCFC;padding:15px 0;}
+.hotel .tit h3{font-weight:700;font-size:16px;}
+.hotel .tit p{font-size: 12px;color:#999}
+.hotel .tit p i{font-family:'iconfont';font-size:15px;padding-right:1px;}
+.hotel .tit p a{color:#999;margin-left:5px;}
+.hotel .tit p a:hover{color:#333;}
+.hotel .tit p a.imfav i{vertical-align:-1px}
+.hotel .tit button{line-height:14px;border:1px solid #fbd4c3;padding: 5px 10px;color: #f60;background: #fff8f4;display: inline-block;position: absolute;border-radius: 2px;top: 20px;right:60px;cursor:pointer;}
+.hotel .tit button:hover{border-color:#f60}
+.hotel .tit .note_icon{position: absolute;top:20px;right:20px;}
+.hotel .tit .note_icon i{padding:0 6px;line-height:23px;height:23px;}
+.hotel .txt{position: relative;font-size:14px;display:block;border: 1px solid #e5e3de;background: #fff;}
+.hotel .txt .see_stats{margin:-3px 0 0 10px;float:left;color: #66aa44;border: 1px solid #66aa44;background: #eeffff;font-size:12px;display:block;padding:2px 6px;border-radius:1px;}
+.hotel .txt .see_stats i{font-family: 'iconfont';font-size:14px;}
+.hotel .txt .see_stats.links{color: #498BF8;border-color: #71a3f5;background: #EEF9FF;}
+.hotel .txt dl{overflow: hidden;width: 96%;margin:0 2%;border-bottom:1px solid #efefef;}
+.hotel .txt dl dt{color: #999;text-align:right;float:left;width:9.5%;padding:14px 2%;}
+.hotel .txt dl dd{;border-left:1px solid #efefef;float:left;width:84%;padding:14px 0 14px 2%;}
+.hotel .txt .ename{float:left;font-size: 24px;color: #1377dc;}
+.hotel .txt .but_ul{float:right;margin-top:2px;}
+.hotel .txt .but_ul li{float:left;margin:0 2px;}
+.hotel .txt .but_ul a[class='blue']{display:block;padding:0 10px;border:1px solid #67acf2;border-radius:10px;font-size:12px;color:#1377dc; }
+.hotel .txt .but_ul a[class='gray']{display:block;padding:0 10px;border:1px solid #ddd;border-radius:10px;font-size:12px;color:#ddd; }
+.hotel .txt .but_ul a[class='blue']:hover{background:#2789ed;border-color:#2789ed;color:#fff;}
+.hotel .txt .but_ul a[class='gray']:hover{background:#ddd;border-color:#ddd;color:#fff;}
+.hotel .txt .many{display:block;padding:15px;line-height:24px;height: expression(this.height> 500 ? 500 : true);min-height: 500px;}
+.hotel .txt .webpic{overflow: hidden;border: 1px solid #eee;background:#fafafa;display: inline-block;position: absolute;top:0;right:0;width:240px;height:180px;padding:2px;}
+.hotel .s_flow,.buy_left .s_flow{border:1px solid #e8e8e8;margin-top:15px;}

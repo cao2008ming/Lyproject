@@ -1,0 +1,18 @@
+@charset "UTF-8";
+/*
+    酒店预订登记
+ */
+
+/*面包屑*/
+.breadcrumb-box{padding: 16px;}
+.steps{text-align: center}
+.steps .status-bar{width: 100%}
+
+.checkin-box{padding: 30px 0;background: rgba(238, 238, 238, 0.33);margin-top: 30px;}
+.checkin-box .layui-form-label{padding: 9px 2px;}
+.checkin-box .layui-input-inline{margin-left: 30px;}
+.checkin-box #notice-box{text-align: right;float: right;color: #333333;}
+.checkin-box #notice-box #notice{color: #1a237e;text-decoration: underline;font-size: 12px;font-weight: 400}
+.checkin-box #ids .layui-form-label{color: #d50000;}
+.checkin-box #ids .layui-form-item .layui-input-inline .ids-input{width: 254px;}
+

@@ -1,0 +1,201 @@
+{extend name="base" /}
+{block name="css"}
+<link rel="stylesheet" href="__CSS__/home/banner.css">
+<link rel="stylesheet" href="__CSS__/home/hotel_info.css">
+<link href='__CSS__/calender/fullcalendar.css' rel='stylesheet' />
+<link href='__CSS__/calender/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+<style>
+    #calendar {
+        max-width: 920px;
+        margin: 16px auto;
+    }
+
+</style>
+{/block}
+{block name="body"}
+    <div class="layui-main">
+        <div class="breadcrumb-box">
+            <span class="layui-breadcrumb" lay-separator=">">
+              <a>当前位置</a>
+              <a href="/">首页</a>
+              <a href="{:url('hotel/index')}"> 酒店预订</a>
+              <a href="">贵阳酒店</a>
+              <a><cite>正文</cite></a>
+            </span>
+        </div>
+  <!--      <div class="search-box">
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">目的地</label>
+                    <div class="layui-input-inline" style="width: 100px;margin-right: 50px;">
+                        <input type="text" name="price_min" placeholder="贵阳" autocomplete="off" class="layui-input">
+                    </div>
+                    <label class="layui-form-mid">入住时间</label>
+                    <div class="layui-input-inline" style="width: 100px;">
+                        <input type="text" name="price_min" placeholder="贵阳" autocomplete="off" class="layui-input">
+                    </div>
+                    <div class="layui-form-mid">退房时间</div>
+                    <div class="layui-input-inline" style="width: 100px;">
+                        <input type="text" name="price_max" placeholder="" autocomplete="off" class="layui-input">
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">关键词</label>
+                        <div class="layui-input-inline" style="width: 150px;">
+                            <input type="text" name="" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <div class="layui-input-inline" style="width: 120px;margin-top: -5px;">
+                            <button class="layui-btn layui-btn-warm">搜索</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>-->
+    </div>
+    <div class="hotel_info">
+        <div class="layui-main">
+            <div class="hotel_name">
+                <p class="name">贵阳中天凯悦酒店（贵阳）</p>
+                <p class="address">地址：贵阳市观山湖区中天会展城100号</p>
+            </div>
+            <div class="hotel_slide_and_price row">
+                <div class="col-md-9">
+                    <div id="mainContainer">
+                        <!-- Start of slideshow markup -->
+                        <div id="DHTMLgoodies_panel_one">
+                            <div id="DHTMLgoodies_thumbs">
+                                <div id="DHTMLgoodies_thumbs_inner">
+                                    <div class="strip_of_thumbnails">
+                                        <div><a href="#" onclick="showPreview('__IMAGES__/home/hotel/test/image10_big.jpg',this);return false;"><img src="__IMAGES__/home/hotel/test/image10.jpg"></a></div>
+                                        <div><a href="#" onclick="showPreview('__IMAGES__/home/hotel/test/image11_big.jpg',this);return false;"><img src="__IMAGES__/home/hotel/test/image11.jpg"></a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Arrow images - You can change the "src", but not the "id" -->
+                            <div id="DHTMLgoodies_arrows" style="display: none">
+                                <img id="DHTMLgoodies_leftArrow" class="leftArrow" src="__IMAGES__/home/hotel/test/arrow_left.gif">
+                                <img id="DHTMLgoodies_rightArrow" class="rightArrow" src="__IMAGES__/home/hotel/test/arrow_right.gif">
+                            </div>
+                        </div>
+                        <!-- Large image div -->
+                        <div id="DHTMLgoodies_largeImage">
+                            <!-- Table is used to get both vertical and horizontal center alignment -->
+                            <table>
+                                <tr>
+                                    <td>
+                                        <!-- The intial shown image -->
+                                        <img src="__IMAGES__/home/hotel/test/image1_big.jpg"></a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!-- End of slideshow markup -->
+
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="comments_and_price row">
+                        <div class="comments col-md-7">
+                            <p class="score">
+                                <span>好极了</span>
+                                <span>4.8</span>
+                                /5分
+                            </p>
+                            <p>来自221条入住点评</p>
+                            <p class="lastCheckIn">最新预订：<span>五分钟前</span></p>
+                        </div>
+                        <div class="price col-md-5">
+                            <p class="layui-themes-color">￥<span style="font-size: 22px;">288</span>起</p>
+                            <a href="#" class="layui-btn layui-btn-warm"> 预&nbsp;&nbsp;订 </a>
+                        </div>
+                    </div>
+                    <div class="lastComments">
+                        <p>
+                            <span>蓝天白云</span>
+                            <span>2017-06-30 17:55:40</span>
+                        </p>
+                        <p class="comments_content">环境为止都不错，交通方便，值得推荐。</p>
+                    </div>
+                    <div class="sheshi">
+                        <ul>
+                            <li>设施</li>
+                            <li><img src="__IMAGES__/home/hotel/sheshi/WIFI.png" alt=" 有WIFI"></li>
+                            <li><img src="__IMAGES__/home/hotel/sheshi/park.png" alt=" 有WIFI"></li>
+                            <li><img src="__IMAGES__/home/hotel/sheshi/tel.png" alt=" 有WIFI"></li>
+                            <li><img src="__IMAGES__/home/hotel/sheshi/jiaoxing.png" alt=" 有WIFI"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="layui-main">
+            <div class="layui-body">
+                <div id='calendar'></div>
+            </div>
+        </div>
+    </div>
+{/block}
+{block name="js"}
+<script src="__JS__/home/common.js"></script>
+<script src="__JS__/home/hotel.js"></script>
+<script src="__JS__/home/hotel_info_slideshow.js"></script>
+<script src="__JS__/jquery.min.js"></script>
+<script src='__JS__/calender/lib/moment.min.js'></script>
+<script src='__JS__/calender/lib/jquery.min.js'></script>
+<script src='__JS__/calender/fullcalendar.js'></script>
+<script src='__JS__/calender/locale/zh-cn.js'></script>
+<script>
+
+    $(document).ready(function() {
+        alert(1)
+
+        var d = new Date();
+        var current = d.getFullYear()+"-0"+(d.getMonth()+1)+"-0"+d.getDate();
+        $('#calendar').fullCalendar({
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+//                right: 'month,agendaWeek,agendaDay,listMonth'
+                right: 'month'
+            },
+
+            defaultDate: current,
+//            navLinks: true, // can click day/week names to navigate views
+//            businessHours: true, // display business hours
+            editable: true,
+            firstDay:1,
+            height:420,
+            events: "{:url('GuidePlan/getMyPlan')}",
+
+            dayClick: function(date, jsEvent, view) {
+                var backgroundColor = '';
+                var msg='';
+                $.ajax({
+                    method: "POST",
+                    url: "{:url('GuidePlan/changePlan')}",
+                    data: { date: date.format()},
+                    async:false,//设置为同步操作就可以给全局变量赋值成功
+                    success: function(result)
+                    {
+                        backgroundColor = result.backgroundColor;
+                        msg = result.message;
+                    }
+                })
+                layer.msg(msg);
+                $(this).css('background-color', backgroundColor);
+            }
+        });
+
+
+    });
+
+    //某一天被点击
+
+</script>
+<script type="text/javascript">
+    initGalleryScript();	// Initialize script
+</script>
+{/block}

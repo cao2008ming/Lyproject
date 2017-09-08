@@ -1,0 +1,73 @@
+{extend name="base" /}
+{block name="css"}
+<link rel="stylesheet" href="__CSS__/hotel.css" media="all">
+<style>
+    .avatar_view{width: 150px;height: 150px;border-radius: 100%;position: absolute;
+        top: 18%;
+        left: 25%;
+        margin: -18px 0 0 -16px;}
+</style>
+{/block}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <!--  <ul class="layui-tab-title">
+              <li class="layui-this">导游信息管理</li>
+              <li class=""><a href="{:url('admin/ info/add')}">发布信息</a></li>
+          </ul>-->
+        <div class="layui-tab-content hotel">
+            <div>
+                <ul class="tit">
+                    <h3><span class="hotel_title">{$info.name}</span> 信息</h3>
+                    <p>提交时间：{$info.create_time}  最后更新：{$info.update_time}</p>
+                    {if condition="$info.status neq 3"}
+                    <button  class="cartadd" id="bcar" data="buy" >
+                        <a href="{:url('/admin/info/edit/id/'.$info.id)}">修改信息</a>
+                    </button>
+                    {/if}
+
+                </ul>
+                <ul class="txt">
+                    <dl>
+                        <dt>真实姓名
+                        </dt>
+                        <dd>
+                            <div class="ename">
+                                {$info.name}
+                                <span style="color: red;font-size: 14px;">
+                                    ({$info.status|get_status_info})
+                                </span>
+                            </div>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>详细地址
+                        </dt>
+                        <dd><b class="orange">{$info.address}</b>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>联系电话
+                        </dt>
+                        <dd>
+                            {$info.tel}
+                        </dd>
+                    </dl>
+
+                    <dl style="border:0">
+                        <dt>机构介绍
+                        </dt>
+                        <dd>
+                            {$info.about}
+                        </dd>
+                    </dl>
+                    <a  class="webpic" rel="nofollow" title="">
+                        <img src="{$info.thumb}" class="avatar_view">
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

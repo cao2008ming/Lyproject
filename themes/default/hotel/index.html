@@ -1,0 +1,140 @@
+{extend name="base" /}
+{block name="css"}
+<link rel="stylesheet" href="__CSS__/home/banner.css?{$Think.config.update_version}">
+<link rel="stylesheet" href="__CSS__/home/hotel.css?{$Think.config.update_version}">
+{/block}
+{block name="body"}
+<div class="head">
+    <div class="layui-main">
+        <div class="row">
+            <div class="col-md-4 tab">
+                <div class="layui-tab">
+                    <ul class="layui-tab-title">
+                        <li class="layui-this">国内酒店</li>
+                        <!--<li>国际酒店</li>-->
+                    </ul>
+                    <div class="layui-tab-content">
+                        <div class="layui-tab-item layui-show">
+                            <form class="layui-form" action="{:url('/home/hotel/search')}" method="get">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">入住城市</label>
+                                    <div class="layui-input-block">
+                                        <select required lay-verify="required" name="city">
+                                            <option value="">请选择城市</option>
+                                            {volist name='citys' id='ko'}
+                                            <option value="{$ko.name}" >{$ko.name}</option>
+                                            {/volist}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">入住日期</label>
+                                    <div class="layui-input-block">
+                                        <input name="start_s" required lay-verify="required" placeholder="yyyy-mm-dd"
+                                               class="layui-input" id="LAY_days_s">
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">退房日期</label>
+                                    <div class="layui-input-block">
+                                        <input name="start_e"  placeholder="yyyy-mm-dd"
+                                               class="layui-input" id="LAY_days_e">
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">关键字</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="keywords" lay-verify="title"   placeholder="酒店名/品牌/地标/商圈" class="layui-input">
+                                    </div>
+                                </div>
+                                <button class="layui-btn layui-btn-normal" style="margin-left: 212px;"
+                                        lay-submit lay-filter="submit">立即搜索
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div id="slideBox" class="slideBox">
+                    <div class="hd">
+                        <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <div class="bd">
+                        <ul>
+                            {volist name='slide' id='vo'}
+                            <li style="background: url({$vo.image}) 50% 0px no-repeat;">
+                                <a href="{$vo.link}" target="{$vo.target}" title="{$vo.name}"></a>
+                            </li>
+                            {/volist}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="layui-main layui-wrap">
+    <div class="row">
+        <div class="col-md-4 side">
+            <div class="side-ads">
+                <a href="#">
+                    <img src="__IMAGES__/home/hotel/jifen.jpg" alt="">
+                </a>
+                <a href="#">
+                    <img src="__IMAGES__/home/hotel/minsu.jpg" alt="">
+                </a>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="layui-tab">
+                <ul class="layui-tab-title">
+                    <li class="title">热门酒店</li>
+                    <li class="layui-this" onclick="get_list(city='',box='hotel-city-0')">全部</li>
+                    <li onclick="get_list(city='贵阳',box='hotel-city-1')" id="guiyang">贵阳</li>
+                    <li onclick="get_list(city='遵义',box='hotel-city-2')" id="zunyi">遵义</li>
+                    <li onclick="get_list(city='安顺',box='hotel-city-3')" id="anshun">安顺</li>
+                    <li onclick="get_list(city='铜仁',box='hotel-city-4')" id="tongren">铜仁</li>
+                    <li onclick="get_list(city='凯里',box='hotel-city-5')" id="kaili">凯里</li>
+                    <li class="more"><a href="#">更多>></a></li>
+                </ul>
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <ul class="hotel-list" id="hotel-all"></ul>
+                    </div>
+                    <div class="layui-tab-item">
+                        <ul class="hotel-list" id="hotel-city-0"></ul>
+                    </div>
+                    <div class="layui-tab-item">
+                        <ul class="hotel-list" id="hotel-city-1"></ul>
+                    </div>
+                    <div class="layui-tab-item">
+                        <ul class="hotel-list" id="hotel-city-2"></ul>
+                    </div>
+                    <div class="layui-tab-item">
+                        <ul class="hotel-list" id="hotel-city-3"></ul>
+                    </div>
+                    <div class="layui-tab-item">
+                        <ul class="hotel-list" id="hotel-city-4"></ul>
+                    </div>
+                    <div class="layui-tab-item">
+                        <ul class="hotel-list" id="hotel-city-5"></ul>
+                    </div>
+                    <div id="pages"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script src="__JS__/home/jquery.SuperSlide.2.1.1.js"></script>
+<script src="__JS__/home/switch.js"></script>
+<script src="__JS__/home/common.js?{$Think.config.update_version}"></script>
+<script src="__JS__/home/hotel.js?{$Think.config.update_version}"></script>
+<script src="__JS__/home/banner.js?{$Think.config.update_version}"></script>
+{/block}

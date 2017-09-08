@@ -1,0 +1,114 @@
+{extend name="base" /}
+{block name="css"}
+<link rel="stylesheet" href="__CSS__/hotel.css" media="all">
+{/block}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+      <!--  <ul class="layui-tab-title">
+            <li class="layui-this">酒店管理</li>
+            <li class=""><a href="{:url('admin/hotel/add')}">发布酒店</a></li>
+        </ul>-->
+        <div class="layui-tab-content hotel">
+            <div>
+                <ul class="tit">
+                    <h3><span class="hotel_title">{$hotel_info.name}</span> 信息</h3>
+                    <p>加盟时间：{$hotel_info.create_time}</p>
+                    {if condition="$hotel_info.status neq 3"}
+                    <button  class="cartadd" id="bcar" data="buy" >
+                        <a href="{:url('/admin/hotel/edit/id/'.$hotel_info.id)}">修改信息</a>
+                    </button>
+                    {/if}
+
+                </ul>
+                <ul class="txt">
+                    <dl>
+                        <dt>酒店名称
+                        </dt>
+                        <dd>
+                            <div class="ename">
+                                {$hotel_info.name}
+                                {if condition="$hotel_info.status eq 0"}
+                                <span style="color: orange;font-size: 14px;">(审核中)</span>
+                                {elseif condition="$hotel_info.status eq 1"}
+                                <span style="color: green;font-size: 14px;">(审核通过)</span>
+                                {elseif condition="$hotel_info.status eq 2"}
+                                <span style="color: red;font-size: 14px;">(审核未通过)</span>
+                                {elseif condition="$hotel_info.status eq 3"}
+                                <span style="color: gray;font-size: 14px;">(已被禁用)</span>
+                                {/if}
+                            </div>
+                            <div class="but_ul" style="width:100%;">
+                                <ul>
+                                    <!--WIFI-->
+                                    {if condition="$hotel_info.is_wifi eq 1"}
+                                    <li><a class="blue" target="_blank">Wifi覆盖</a></li>
+                                    {else/}
+                                    <li><a class="gray" target="_blank">Wifi覆盖</a></li>
+                                    {/if}
+                                    <!--寄存-->
+                                    {if condition="$hotel_info.is_jicun eq 1"}
+                                    <li><a class="blue" target="_blank">寄存</a></li>
+                                    {else/}
+                                    <li><a class="gray" target="_blank">寄存</a></li>
+                                    {/if}
+                                    <!--对外停车-->
+                                    {if condition="$hotel_info.is_park eq 1"}
+                                    <li><a class="blue" target="_blank">对外停车</a></li>
+                                    {else/}
+                                    <li><a class="gray" target="_blank">对外停车</a></li>
+                                    {/if}
+                                    <!--固定电话-->
+                                    {if condition="$hotel_info.is_tel eq 1"}
+                                    <li><a class="blue" target="_blank">提供固话</a></li>
+                                    {else/}
+                                    <li><a class="gray" target="_blank">提供固话</a></li>
+                                    {/if}
+                                    <!--叫醒服务-->
+                                    {if condition="$hotel_info.is_jiaoxing eq 1"}
+                                    <li><a class="blue" target="_blank">叫醒服务</a></li>
+                                    {else/}
+                                    <li><a class="gray" target="_blank">叫醒服务</a></li>
+                                    {/if}
+
+                                </ul>
+                            </div>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>均价消费
+                        </dt>
+                        <dd><b class="orange">{$hotel_info.price}</b> 元
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>酒店位置
+                        </dt>
+                        <dd>
+                            <em style="float: left;">{$hotel_info.province_id}-{$hotel_info.city_id}-{$hotel_info.area_id}-{$hotel_info.address} </em>
+                            <a class="see_stats" id="149449167455"><i class="va-1"></i> (客户电话：{$hotel_info.tel})</a>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>酒店说明
+                        </dt>
+                        <dd>{$hotel_info.info}
+                        </dd>
+                    </dl>
+                    <dl style="border:0">
+                        <dt>酒店介绍
+                        </dt>
+                        <dd>
+                            {$hotel_info.content}
+                        </dd>
+                    </dl>
+                    <a  class="webpic" rel="nofollow" title="">
+                        <img src="{$hotel_info.thumb}" style="width: 100%">
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

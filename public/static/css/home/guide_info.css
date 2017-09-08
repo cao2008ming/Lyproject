@@ -1,0 +1,33 @@
+@charset "UTF-8";
+/**
+ * Created by torans(321870617@QQ.COM) on 17/7/21.
+ *
+ * 
+ */
+
+body{background: #DBDBDB}
+
+.info-box{margin: 0px;margin-bottom: 30px;}
+.info ,.info-left{background: #fff;padding: 24px;min-height: 412px;}
+.info {border-right: 20px solid #DBDBDB}
+.info .thumb img{border-radius: 100%;width: 200px;height: 200px;}
+.info .base-info{}
+.info .introduction{padding: 16px;font-size: 16px;text-indent: 2em;color:#666;font-weight: 300}
+.info .base-info h3{font-size: 28px;padding-bottom: 16px;}
+.info .base-info .info-label{font-size: 16px;font-weight: 200}
+.info .base-info p{font-size: 16px;padding: 4px 0;color: #818181}
+
+.info-left .info-left-title{font-size: 30px;color: #969696}
+.info-left .button-box{text-align:center;margin-top:calc( (100vh - 422px)/2 )}
+.info-left .button-box p{padding-bottom: 16px;}
+
+.tab-box{background: #ffffff;padding: 24px;}
+.tab-box .layui-tab-brief .layui-tab-title .layui-this{background: #2577e4;color: #ffffff;}
+.tab-box .layui-tab-brief .layui-tab-title .layui-this a{color: #ffffff;}
+.tab-box .layui-tab-brief .layui-tab-more li.layui-this:after, .layui-tab-brief .layui-tab-title .layui-this:after{
+    border-bottom: 0px solid #2577e4;color: #ffffff;
+}
+.layui-tab-title{border-bottom: 3px solid #2577e4!important;}
+.tab-box .layui-tab-content{padding: 14px 0;}
+.tab-box .tab-label{font-size: 22px;color: #2577e4;margin-top: 30px;}
+.fixed{position: fixed;top:0px;display: block;background: #fff;width: 990px;}

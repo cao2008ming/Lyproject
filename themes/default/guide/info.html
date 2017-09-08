@@ -1,0 +1,120 @@
+{extend name="base" /}
+{block name="css"}
+<link href='__CSS__/calender/fullcalendar.css' rel='stylesheet'/>
+<link href='__CSS__/calender/fullcalendar.print.min.css' rel='stylesheet' media='print'/>
+<link rel="stylesheet" href="__CSS__/home/guide_info.css?{$Think.config.update_version}">
+{/block}
+{block name="body"}
+<div class="layui-main">
+    <div class="breadcrumbs">
+        <span class="layui-breadcrumb">
+          <a href="/">首页</a>
+          <a href="{:url('/home/guide')}">导游预订</a>
+          <a><cite>导游详情</cite></a>
+        </span>
+    </div>
+    <div class="info-box row">
+        <div class="col-md-8 info">
+            <div class="row">
+                <div class="col-md-5 thumb">
+                    <img src="{$info.thumb}" alt="{$info.name}">
+                </div>
+                <div class="col-md-7 base-info">
+                    <h3 id="name">{$info.name}</h3>
+                    <p><span class="info-label">导游性别:</span>{$info.sexy}</p>
+                    <p><span class="info-label">导游年龄:</span>{$info.birthday|get_age_by_birthday}岁</p>
+                    <p><span class="info-label">从业年限:</span>{$info.years}年</p>
+                    <p><span class="info-label">证书编号:</span>{$info.tel}</p>
+                    <p><span class="info-label">擅长领域:</span>{$info.shanchang}</p>
+                </div>
+            </div>
+            <div class="introduction">{$info.introduction}</div>
+        </div>
+        <div class="col-md-4 info-left">
+            <!--<h6 class="info-left-title">预订信息</h6>-->
+            <div class="button-box">
+                <p><button class="layui-btn layui-btn-big">时间排表</button></p>
+                <p><button onclick="tel()" class="layui-btn layui-btn-big layui-btn-normal">联系电话</button></p>
+                <p><button class="layui-btn layui-btn-big layui-btn-warm" onclick="check({$info['id']})">在线预约</button></p>
+            </div>
+        </div>
+    </div>
+    <div class="info-box">
+        <div id='calendar'></div>
+    </div>
+    <div class="info-box tab-box">
+        <div class="layui-tab layui-tab-brief">
+           <div id="tab">
+               <ul class="layui-tab-title">
+                   <li class="layui-this"><a href="#standard">服务标准</a></li>
+                   <li><a href="#notice">用户须知</a></li>
+                   <li><a href="#comment">游客点评</a></li>
+               </ul>
+           </div>
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    <div id="standard">
+                        <p class="tab-label">服务标准</p>
+                        <p>这里是服务标准的具体内容展现</p>
+                        <p>这里是服务标准的具体内容展现</p>
+                        <p>这里是服务标准的具体内容展现</p>
+                        <p>这里是服务标准的具体内容展现</p>
+                        <p>这里是服务标准的具体内容展现</p>
+                        <p>这里是服务标准的具体内容展现</p>
+                        <p>这里是服务标准的具体内容展现</p>
+                        <p>这里是服务标准的具体内容展现</p>
+                        <p>这里是服务标准的具体内容展现</p>
+                        <p>这里是服务标准的具体内容展现</p>
+                        <p>这里是服务标准的具体内容展现</p>
+                        <p>这里是服务标准的具体内容展现</p>
+                        <p>这里是服务标准的具体内容展现</p>
+                        <p>这里是服务标准的具体内容展现</p>
+                        <p>这里是服务标准的具体内容展现</p>
+                    </div>
+                    <div id="notice">
+                        <p class="tab-label">用户须知</p>
+                        <p>这里是用户须知的具体内容展现</p>
+                        <p>这里是用户须知的具体内容展现</p>
+                        <p>这里是用户须知的具体内容展现</p>
+                        <p>这里是用户须知的具体内容展现</p>
+                        <p>这里是用户须知的具体内容展现</p>
+                        <p>这里是用户须知的具体内容展现</p>
+                        <p>这里是用户须知的具体内容展现</p>
+                        <p>这里是用户须知的具体内容展现</p>
+                        <p>这里是用户须知的具体内容展现</p>
+                        <p>这里是用户须知的具体内容展现</p>
+                        <p>这里是用户须知的具体内容展现</p>
+                        <p>这里是用户须知的具体内容展现</p>
+                        <p>这里是用户须知的具体内容展现</p>
+                        <p>这里是用户须知的具体内容展现</p>
+                        <p>这里是用户须知的具体内容展现</p>
+                        <p>这里是用户须知的具体内容展现</p>
+                        <p>这里是用户须知的具体内容展现</p>
+                        <p>这里是用户须知的具体内容展现</p>
+                        <p>这里是用户须知的具体内容展现</p>
+                    </div>
+                    <div id="comment">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id='phone' style="display: none">{$info.tel}</div>
+{/block}
+{block name="script"}
+<script src="__JS__/home/common.js"></script>
+
+<script src="__JS__/home/guide_info.js?{$Think.config.update_version}"></script>
+<script>
+
+   function check(id) {
+       layer.open({
+           type: 2,
+           area: ['800px', '500px'],
+           content: '/home/guide/check/id/'+id //这里content是一个URL，如果你不想让iframe出现滚动条，你还可以content: ['http://sentsin.com', 'no']
+       });
+   }
+</script>
+{/block}

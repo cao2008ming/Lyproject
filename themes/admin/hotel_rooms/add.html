@@ -1,0 +1,192 @@
+{extend name="base" /}
+{block name="body"}
+<style>
+
+</style>
+{/block}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class=""><a href="{:url('admin/hotel_rooms/index')}">客房管理</a></li>
+            <li class="layui-this">创建客房</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form form-container" action="{:url('admin/hotel_rooms/save')}" method="post">
+                    {if $admin_id eq 1}
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">关联酒店</label>
+                        <div class="layui-input-block">
+                            <select name="hotel_id" lay-verify="required">
+                                {foreach name="hotel_list" item="vo"}
+                                <option value="{$vo.id}">{$vo.name}</option>
+                                {/foreach}
+                            </select>
+                        </div>
+                    </div>
+                    {/if}
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">客房类型</label>
+                        <div class="layui-input-block">
+                            <select name="cate_id" lay-verify="required">
+                                {foreach name="cate_list" item="vo"}
+                                <option value="{$vo.id}">{$vo.name}</option>
+                                {/foreach}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">客房名称</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="name" value="" required  lay-verify="required" placeholder="请输入客房名称" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">客房数量</label>
+                        <div class="layui-input-inline">
+                            <input type="number" name="persons" value="" required  lay-verify="required" class="layui-input">
+                        </div>
+                        <div class="layui-form-mid layui-word-aux">间</div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">建筑面积</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="area" value="" required  lay-verify="required" placeholder="请输入客房建筑面积" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">客房价格</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="price" value="" required  lay-verify="required" placeholder="请输入客房价格" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">可加床</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="addbed" value="" required  lay-verify="required" placeholder="格式：RMB 120/床/间夜" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">床型</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="bed_type" value="1" checked="checked" title="大床">
+                            <input type="radio" name="bed_type" value="2"   title="双人床">
+                            <input type="radio" name="bed_type" value="3"   title="多床">
+                            <input type="radio" name="bed_type" value="4"   title="单人床">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">早餐</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="breakfast" value="1" title="提供">
+                            <input type="radio" name="breakfast" value="0"  checked="checked" title="暂不提供">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">所在楼层</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="float" value="" required  lay-verify="required" class="layui-input">
+                        </div>
+                        <div class="layui-form-mid layui-word-aux">如：6-19层</div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">人数上限</label>
+                        <div class="layui-input-inline">
+                            <input type="number" name="persons" value="" required  lay-verify="required" class="layui-input">
+                        </div>
+                        <div class="layui-form-mid layui-word-aux">即最多入驻人数（只能输入数字）</div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">便利设施</label>
+                        <div class="layui-input-block">
+                            <textarea type="text" name="blss" class="layui-textarea" placeholder="如：楼110V电压插座、中央空调、书桌、房内保险箱、沙发、衣柜/衣橱、220V电压插座、电子秤、针线包、遮光窗帘、手动窗帘、床具:鸭绒被、床具:毯子或被子、房间内高速上网、客房WIFI覆盖、客房WIFI覆盖免费,且不能超过85个字符"></textarea>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">食品和饮品</label>
+                        <div class="layui-input-block">
+                            <textarea type="text" name="sphyp"class="layui-textarea" placeholder="如：楼层信息等,且不能超过85个字符"></textarea>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">媒体/科技</label>
+                        <div class="layui-input-block">
+                            <textarea name="mtkj" placeholder="国内长途电话、国际长途电话、有线频道、液晶电视机、卫星频道、电视机、电话等。且不超过85个字符" class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">缩略图</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="thumb" value="" class="layui-input layui-input-inline" id="thumb">
+                            <input type="file" name="file" class="layui-upload-file">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">图集</label>
+                        <div class="layui-input-block">
+                            <button type="button" id="upload-photo-btn" class="layui-btn">上传图集</button>
+                            <div id="photo-container"></div>
+                        </div>
+                    </div>
+
+                    {if condition="$admin_id eq 1"}
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">状态</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="status" value="1" title="直接上线">
+                            <input type="radio" name="status" value="0"  checked="checked" title="等待审核">
+                        </div>
+                    </div>
+                    {/if}
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="*">保存</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="js"}
+<script src="__JS__/ueditor/ueditor.config.js"></script>
+<script src="__JS__/ueditor/ueditor.all.min.js"></script>
+<script src="__JS__/jquery-1.11.0.js"></script>
+{/block}
+{block name="script"}
+<script>
+    $(function() {
+        var ue = UE.getEditor('content'),
+            uploadEditor = UE.getEditor('upload-photo-btn'),
+            photoListItem,
+            uploadImage;
+
+        uploadEditor.ready(function () {
+            uploadEditor.setDisabled();
+            uploadEditor.hide();
+            uploadEditor.addListener('beforeInsertImage', function (t, arg) {
+                $.each(arg, function (index, item) {
+                    photoListItem = '<div class="photo-list"><input type="text" name="photo[]" value="' + item.src + '" class="layui-input layui-input-inline">';
+                    photoListItem += '<button type="button" class="layui-btn layui-btn-danger remove-photo-btn">移除</button></div>';
+
+                    $('#photo-container').append(photoListItem).on('click', '.remove-photo-btn', function () {
+                        $(this).parent('.photo-list').remove();
+                    });
+                });
+            });
+        });
+
+        $('#upload-photo-btn').on('click', function () {
+            uploadImage = uploadEditor.getDialog("insertimage");
+            uploadImage.open();
+        });
+    });
+
+
+</script>
+{/block}

@@ -1,0 +1,84 @@
+{extend name="base" /}
+{block name="css"}
+<link rel="stylesheet" href="__CSS__/hotel.css" media="all">
+<style>
+    .avatar_view{width: 150px;height: 150px;border-radius: 100%;position: absolute;
+        top: 18%;
+        left: 25%;
+        margin: -18px 0 0 -16px;}
+</style>
+{/block}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <!--  <ul class="layui-tab-title">
+              <li class="layui-this">导游信息管理</li>
+              <li class=""><a href="{:url('admin/ guidebook/add')}">发布信息</a></li>
+          </ul>-->
+        <div class="layui-tab-content hotel">
+            <div>
+                <ul class="tit">
+                    <h3><span class="hotel_title">{$guidebook_info.name}</span> 信息</h3>
+                    <p>提交时间：{$guidebook_info.create_time}  最后更新：{$guidebook_info.update_time}</p>
+                    {if condition="$guidebook_info.status neq 3"}
+                    <button  class="cartadd" id="bcar" data="buy" >
+                        <a href="{:url('/admin/guidebook/edit/id/'.$guidebook_info.id)}">修改信息</a>
+                    </button>
+                    {/if}
+
+                </ul>
+                <ul class="txt">
+                    <dl>
+                        <dt>真实姓名
+                        </dt>
+                        <dd>
+                            <div class="ename">
+                                {$guidebook_info.name}
+                                {if condition="$guidebook_info.status eq 0"}
+                                <span style="color: orange;font-size: 14px;">(审核中)</span>
+                                {elseif condition="$guidebook_info.status eq 1"}
+                                <span style="color: green;font-size: 14px;">(审核通过)</span>
+                                {elseif condition="$guidebook_info.status eq 2"}
+                                <span style="color: red;font-size: 14px;">(审核未通过)</span>
+                                {elseif condition="$guidebook_info.status eq 3"}
+                                <span style="color: gray;font-size: 14px;">(已被禁用)</span>
+                                {/if}
+                            </div>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>身份证号
+                        </dt>
+                        <dd><b class="orange">{$guidebook_info.uid}</b>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>联系电话
+                        </dt>
+                        <dd>
+                           {$guidebook_info.tel}
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>个人擅长
+                        </dt>
+                        <dd>{$guidebook_info.shanchang}
+                        </dd>
+                    </dl>
+                    <dl style="border:0">
+                        <dt>个人介绍
+                        </dt>
+                        <dd>
+                            {$guidebook_info.about}
+                        </dd>
+                    </dl>
+                    <a  class="webpic" rel="nofollow" title="">
+                        <img src="{$guidebook_info.thumb}" class="avatar_view">
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

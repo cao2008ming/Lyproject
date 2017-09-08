@@ -1,0 +1,225 @@
+{extend name="base" /}
+{block name="body"}
+<style>
+
+</style>
+{/block}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class=""><a href="{:url('admin/hotel/index')}">酒店管理</a></li>
+            <li class="layui-this">修改酒店信息</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form form-container" action="{:url('admin/hotel/update')}" method="post">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">酒店类型</label>
+                        <div class="layui-input-block">
+                            <select name="cate_id" lay-verify="required">
+                                {foreach name="cate_list" item="vo"}
+                                <option value="{$vo.id}" {if condition="$data.cate_id eq $vo.id"}selected="selected"{/if}>{$vo.name}</option>
+                                {/foreach}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">选择地区</label>
+                            <div class="layui-input-inline">
+                                <select name="province_id" lay-filter="province">
+                                    <option value="{$data.province_id}">{$data.province_id}</option>
+                                </select>
+                            </div>
+                            <div class="layui-input-inline">
+                                <select name="city_id" lay-filter="city">
+                                    <option value="{$data.city_id}">{$data.city_id}</option>
+                                </select>
+                            </div>
+                            <div class="layui-input-inline">
+                                <select name="area_id" lay-filter="area">
+                                    <option value="{$data.area_id}">{$data.area_id}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">酒店名称</label>
+                        <div class="layui-input-block">
+                            {if condition="$admin_id eq 1"}
+                            <input type="text" name="name" value="{$data.name}" required  lay-verify="required" placeholder="请输入酒店名称" class="layui-input">
+                           {else/}
+                            <input type="text"  value="{$data.name}"  disabled="disabled" required  lay-verify="required" placeholder="请输入酒店名称" class="layui-input">
+                            {/if}
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">服务电话</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="tel" value="{$data.tel}" required  lay-verify="required" placeholder="请输入酒店电话" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">消费均价</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="price" value="{$data.price}" required  lay-verify="required" placeholder="请输入平均消费均价" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">酒店地址</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="address" value="{$data.address}" required  lay-verify="required" placeholder="请输入酒店详细地址" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">Wifi覆盖</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="is_wifi" {if condition="$data.is_wifi eq 1"}checked="checked"{/if} value="1" title="是">
+                            <input type="radio" name="is_wifi" {if condition="$data.is_wifi eq 0"}checked="checked"{/if} value="0"  title="否">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">提供寄存</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="is_jicun" {if condition="$data.is_jicun eq 1"}checked="checked"{/if}value="1" title="提供">
+                            <input type="radio" name="is_jicun" {if condition="$data.is_jicun eq 0"}checked="checked"{/if}value="0" title="暂不提供">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">提供停车</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="is_park" {if condition="$data.is_park eq 1"}checked="checked"{/if}value="1" title="提供">
+                            <input type="radio" name="is_park" {if condition="$data.is_park eq 0"}checked="checked"{/if}value="0" title="暂不提供">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">长途电话</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="is_tel" {if condition="$data.is_tel eq 1"}checked="checked"{/if} value="1" title="提供">
+                            <input type="radio" name="is_tel" {if condition="$data.is_tel eq 0"}checked="checked"{/if}value="0"  title="暂不提供">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">叫醒服务</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="is_jiaoxing" {if condition="$data.is_jiaoxing eq 1"}checked="checked"{/if}value="1" title="提供">
+                            <input type="radio" name="is_jiaoxing" {if condition="$data.is_jiaoxing eq 0"}checked="checked"{/if} value="0" title="暂不提供">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">备注说明</label>
+                        <div class="layui-input-block">
+                            <textarea type="text" name="info" cols="96" rows="5" placeholder="如：楼层信息等,且不能超过85个字符">
+                                {$data.info}
+                            </textarea>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">酒店介绍</label>
+                        <div class="layui-input-block">
+                            <textarea name="content" placeholder="" class="layui-textarea" id="content">{$data.content}</textarea>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">缩略图</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="thumb" value="{$data.thumb}" class="layui-input layui-input-inline" id="thumb">
+                            <input type="file" name="file" class="layui-upload-file">
+                            <span id="ViewThumb" onclick="viewthumb()" class="layui-btn layui-btn-normal layui-btn-radius">
+                                打开预览
+                            </span>
+                            <span id="CloseViewThumb" onclick="CloseViewThumb()" style="display: none" class="layui-btn layui-btn-warm layui-btn-radius">
+                                关闭预览
+                            </span>
+                            <div id="thumbForView" style="display: none;margin-top: 20px;"><img src="{$data.thumb}" width="300px" height="200px;"> </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">图集</label>
+                        <div class="layui-input-block">
+                            <button type="button" id="upload-photo-btn"  class="layui-btn">上传图集</button>
+                            <div id="photo-container"></div>
+                        </div>
+                    </div>
+
+                    {if condition="$admin_id eq 1"}
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">推荐</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="is_recommend" {if condition="$data.is_recommend eq 1"}checked="checked"{/if} value="1" title="推荐">
+                            <input type="radio" name="is_recommend" {if condition="$data.is_recommend eq 0"}checked="checked"{/if}value="0" title="未推荐">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">状态</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="status" {if condition="$data.status eq 1"}checked="checked"{/if}value="1" title="直接上线">
+                            <input type="radio" name="status" {if condition="$data.status eq 0"}checked="checked"{/if}value="0" title="等待审核">
+                        </div>
+                    </div>
+                    {/if}
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <input type="hidden" name="id" value="{$data.id}">
+                            <button class="layui-btn" lay-submit lay-filter="*">保存</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="js"}
+<script src="__JS__/ueditor/ueditor.config.js"></script>
+<script src="__JS__/ueditor/ueditor.all.min.js"></script>
+<script src="__JS__/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="__JS__/citys.js"></script>
+{/block}
+{block name="script"}
+<script>
+    $(function() {
+        var ue = UE.getEditor('content'),
+            uploadEditor = UE.getEditor('upload-photo-btn'),
+            photoListItem,
+            uploadImage;
+
+        uploadEditor.ready(function () {
+            uploadEditor.setDisabled();
+            uploadEditor.hide();
+            uploadEditor.addListener('beforeInsertImage', function (t, arg) {
+                $.each(arg, function (index, item) {
+                    photoListItem = '<div class="photo-list"><input type="text" name="photo[]" value="' + item.src + '" class="layui-input layui-input-inline">';
+                    photoListItem += '<button type="button" class="layui-btn layui-btn-danger remove-photo-btn">移除</button></div>';
+
+                    $('#photo-container').append(photoListItem).on('click', '.remove-photo-btn', function () {
+                        $(this).parent('.photo-list').remove();
+                    });
+                });
+            });
+        });
+
+        $('#upload-photo-btn').on('click', function () {
+            uploadImage = uploadEditor.getDialog("insertimage");
+            uploadImage.open();
+        });
+    });
+
+    pca.init('select[name=province_id]', 'select[name=city_id]', 'select[name=area_id]', '贵州', '贵阳', '南明区');
+    //预览图片
+    function viewthumb() {
+        $("#ViewThumb").hide();
+        $("#thumbForView").show();
+        $("#CloseViewThumb").show();
+    }
+    function CloseViewThumb() {
+        $("#ViewThumb").show();
+        $("#CloseViewThumb").hide();
+        $("#thumbForView").hide();
+    }
+</script>
+{/block}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {block name='title'}{/block}
+        {$Think.config.website_name} - Powered By Juzhonghui.Cn
+    </title>
+    {block name='keywords'}
+    <meta name="keywords" content="">
+    {/block}
+    {block name='description'}
+    <meta name="description" content="">
+    {/block}
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="贵阳网站建设 -www.juzhonghui.cn">
+    <link rel="stylesheet" href="__CSS__/row.css">
+    <link rel="stylesheet" href="__JS__/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="__CSS__/font-awesome.min.css">
+    <link rel="stylesheet" href="__CSS__/home/common.css?{$Think.config.update_version}">
+    <!--CSS引用-->
+    {block name="css"}{/block}
+    <!--[if lt IE 9]>
+    <script src="__CSS__/html5shiv.min.js"></script>
+    <script src="__CSS__/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="layui-layout">
+        <!--头部-->
+        <div class="layui-header header">
+            <div class="layui-main">
+                <ul class="layui-nav">
+                    <a href=""><img class="logo" src="__IMAGES__/home/logo.png" alt=""></a>
+                    {foreach name="nav" item="vo"}
+                    <li class="layui-nav-item">
+                        <a href="{:url($vo.link)}"><i class="{$vo.icon}"></i>{$vo.name}</a>
+                    </li>
+                    {/foreach}
+                    {if $user_id}
+                    <li class="layui-nav-item user_info">
+                        <a href="javascript:;">欢迎您：<span class="layui-themes-color">{:session('user_name')}</span> </a>
+                        <dl class="layui-nav-child"> <!-- 二级菜单 -->
+                            <dd><a href="{:url('user/profile')}">个人中心</a></dd>
+                            <dd><a href="{:url('change_password/index')}">修改密码</a></dd>
+                            <dd><a href="{:url('user/logout')}">退出登录</a></dd>
+                        </dl>
+                    </li>
+                    {else /}
+                    <li class="login">
+                        <a href="{:url('user/register')}" class="layui-btn layui-btn-normal">注册</a>
+                        <a id="login" class="layui-btn layui-btn-default">登录</a>
+                    </li>
+                    {/if}
+                </ul>
+
+            </div>
+        </div>
+        <!--主体-->
+        {block name="body"}
+        121
+        {/block}
+        <div class="layui-footer footer footer-doc">
+            <div class="layui-main">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img class="footer-logo" src="http://www.kutx.cn/xiaotupian/icons/png/200711/20071126152041660.png">
+                    </div>
+                    <div class="col-md-4">
+                        <h4>服务联系</h4>
+                        <hr>
+                        <ul>
+                            <li>客户热线：0851-00000000</li>
+                            <li>电子邮箱：admin@admin.com</li>
+                            <li>办公地址：贵州省贵阳市观山湖区中天会展城</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 row">
+                        <div class="col-md-6">
+                            <h4>企业介绍</h4>
+                            <hr>
+                            <ul>
+                                <li><a href="{:url('home/about/AboutUs')}">关于我们</a></li>
+                                <li>新闻咨询</li>
+                                <li>联系我们</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>发现我们</h4>
+                            <hr>
+                            <ul>
+                                <li>加入我们</li>
+                                <li>免责申明</li>
+                                <li>安全保障</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="col-md-2">
+                        <img class="footer-ewm" src="http://www.twword.com/uploads/wiki/93/87/50698_0.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">技术支持:<a href="{$Think.config.copyright_web}">{$Think.config.copyright_name}</a></div>
+        </div>
+        <!--JS引用-->
+        <script src="__JS__/layui/lay/dest/layui.all.js"></script>
+        <script src="__JS__/jquery.min.js"></script>
+        <script src="__JS__/home/common.js?{$Think.config.update_version}"></script>
+        {block name="js"}
+        {/block}
+        <!--页面JS脚本-->
+        {block name="script"}{/block}
+    </div>
+</body>
+<div id="login-box" style="display: none">
+    <form class="layui-form" action="{:url('user/login')}" style="padding: 16px;" method="post">
+        <div class="layui-form-item">
+            <label class="layui-form-label">登录账号</label>
+            <div class="layui-input-block">
+                <input type="text" name="username" required lay-verify="required" placeholder="手机号/用户名"
+                       autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">登录口令</label>
+            <div class="layui-input-block">
+                <input type="password" name="password" required lay-verify="required" placeholder="密码"
+                       autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <a href="{:url('user/register')}" class="layui-btn layui-btn-primary">马上注册</a>
+                <button class="layui-btn layui-btn-normal" lay-submit lay-filter="login">立即登录</button>
+            </div>
+        </div>
+    </form>
+</div>
+</html>

@@ -1,0 +1,48 @@
+{extend name="base" /}
+{block name="css"}
+<link rel="stylesheet" href="__CSS__/home/steps.css?{$Think.config.update_version}">
+<link rel="stylesheet" href="__CSS__/payment.css?{$Think.config.update_version}">
+{/block}
+{block name="body"}
+<!--<div class="banner"></div>-->
+<div class="layui-main">
+    <div class="layui-main">
+        <div class="steps" style="margin-top: 30px;">
+            <ul class="status-bar">
+                <li class="checked">
+                    第一步:选择商品
+                    <i class="triangle-right-bg"></i>
+                    <i class="triangle-right"></i>
+                </li>
+                <li class="checked">
+                    第二步：在线支付
+                    <i class="triangle-right-bg"></i>
+                    <i class="triangle-right"></i>
+                </li>
+                <li class="checked">
+                    第三步：完成
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="order_info">
+        <div class="order_info_title" STYLE="text-align: center;padding: 100px 16px;">
+            <h3>
+                {eq name='result' value='success'}
+                <i class="layui-icon" style="font-size: 30px; color: #1E9FFF;">&#x1005;</i>
+                恭喜您！支付成功
+                {else /}
+                <i class="layui-icon" style="font-size: 30px; color: #1E9FFF;">&#x1007;</i>
+                抱歉！支付失败，请稍候再试
+                {/eq}
+            </h3>
+
+        </div>
+    </div>
+
+</div>
+{/block}
+{block name="script"}
+<script src="__JS__/home/common.js"></script>
+{/block}

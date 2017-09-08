@@ -1,0 +1,409 @@
+{extend name="base" /}
+{block name="title"}
+{$info.city_id}{$info.name} -
+{/block}
+{block name="css"}
+<link rel="stylesheet" href="__CSS__/home/banner.css">
+<link rel="stylesheet" href="__CSS__/home/hotel_info.css">
+<link rel="stylesheet" href="__CSS__/circle.css">
+{/block}
+{block name="body"}
+<div class="layui-main">
+    <div class="breadcrumb-box">
+            <span class="layui-breadcrumb" lay-separator=">">
+              <a>当前位置</a>
+              <a href="/">首页</a>
+              <a href="{:url('hotel/index')}"> 酒店预订</a>
+              <a href="">{$info.city_id}酒店</a>
+              <a><cite>{$info.name}</cite></a>
+            </span>
+    </div>
+    <!--      <div class="search-box">
+              <div class="layui-form-item">
+                  <div class="layui-inline">
+                      <label class="layui-form-label">目的地</label>
+                      <div class="layui-input-inline" style="width: 100px;margin-right: 50px;">
+                          <input type="text" name="price_min" placeholder="贵阳" autocomplete="off" class="layui-input">
+                      </div>
+                      <label class="layui-form-mid">入住时间</label>
+                      <div class="layui-input-inline" style="width: 100px;">
+                          <input type="text" name="price_min" placeholder="贵阳" autocomplete="off" class="layui-input">
+                      </div>
+                      <div class="layui-form-mid">退房时间</div>
+                      <div class="layui-input-inline" style="width: 100px;">
+                          <input type="text" name="price_max" placeholder="" autocomplete="off" class="layui-input">
+                      </div>
+                      <div class="layui-inline">
+                          <label class="layui-form-label">关键词</label>
+                          <div class="layui-input-inline" style="width: 150px;">
+                              <input type="text" name="" autocomplete="off" class="layui-input">
+                          </div>
+                      </div>
+                      <div class="layui-inline">
+                          <div class="layui-input-inline" style="width: 120px;margin-top: -5px;">
+                              <button class="layui-btn layui-btn-warm">搜索</button>
+                          </div>
+                      </div>
+                  </div>
+
+              </div>
+          </div>-->
+</div>
+<div class="hotel_info">
+    <div class="layui-main">
+        <div class="hotel_name">
+            <p class="name">{$info.name}（{$info.city_id}）</p>
+            <p class="address">地址：{$info.address}</p>
+        </div>
+        <div class="hotel_slide_and_price row">
+            <div class="col-md-9">
+                <div id="mainContainer">
+                    <!-- Start of slideshow markup -->
+                    <div id="DHTMLgoodies_panel_one">
+                        <div id="DHTMLgoodies_thumbs">
+                            <div id="DHTMLgoodies_thumbs_inner">
+                                <div class="strip_of_thumbnails">
+                                    {volist name='info.photo' id='fo' key='i'}
+                                    <div><a href="#" onclick="showPreview('{$fo}',this);return false;"><img
+                                            lay-src="{$fo}"></a></div>
+                                    {/volist}
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Arrow images - You can change the "src", but not the "id" -->
+                        <div id="DHTMLgoodies_arrows" style="display: none">
+                            <img id="DHTMLgoodies_leftArrow" class="leftArrow"
+                                 src="__IMAGES__/home/hotel/test/arrow_left.gif">
+                            <img id="DHTMLgoodies_rightArrow" class="rightArrow"
+                                 src="__IMAGES__/home/hotel/test/arrow_right.gif">
+                        </div>
+                    </div>
+                    <!-- Large image div -->
+                    <div id="DHTMLgoodies_largeImage">
+                        <!-- Table is used to get both vertical and horizontal center alignment -->
+                        <table>
+                            <tr>
+                                <td>
+                                    <!-- The intial shown image -->
+                                    <img lay-src="{$info.photo[0]}"></a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <!-- End of slideshow markup -->
+
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="comments_and_price row">
+                    <div class="comments col-md-7">
+                        <p class="score">
+                            <span class="score_level">{$info.score_level}</span>
+                            <span class="layui-themes-color">{$info.score}</span>
+                            /5分
+                        </p>
+                        <p>来自{$info.comments}条入住点评</p>
+                        <p class="lastCheckIn">最新预订：<span>五分钟前</span></p>
+                    </div>
+                    <div class="price col-md-5">
+                        <p class="layui-themes-color">￥<span style="font-size: 22px;">{$info.price}</span>起</p>
+                        <a href="#" class="layui-btn layui-btn-warm"> 预&nbsp;&nbsp;订 </a>
+                    </div>
+                </div>
+                <div class="lastComments">
+                    <p>
+                        {if condition="$last_comment.user_id neq 'null'"}
+                        <span>评价情况</span>
+                        {else /}
+                        <span>{$last_comment.user_id|get_user_name}</span>
+                        {/if}
+                        <span>{$last_comment.create_time|default=''}</span>
+                    </p>
+                    <p class="comments_content">{$last_comment.content}</p>
+                </div>
+                <div class="sheshi">
+                    <ul>
+                        <li>设施</li>
+                        {if condition = '$info.is_wifi'}
+                        <li><img src="__IMAGES__/home/hotel/sheshi/WIFI.png" alt="有WIFI"></li>
+                        {/if}
+                        {if condition = '$info.is_park'}
+                        <li><img src="__IMAGES__/home/hotel/sheshi/park.png" alt="可停车"></li>
+                        {/if}
+                        {if condition = '$info.is_tel'}
+                        <li><img src="__IMAGES__/home/hotel/sheshi/tel.png" alt="固定电话"></li>
+                        {/if}
+                        {if condition = '$info.is_jiaoxing'}
+                        <li><img src="__IMAGES__/home/hotel/sheshi/jiaoxing.png" alt="叫醒服务"></li>
+                        {/if}
+                        {if condition = '$info.is_jicun'}
+                        <li><img src="__IMAGES__/home/hotel/sheshi/jicun.png" alt="免费寄存"></li>
+                        {/if}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="room_box">
+    <div class="layui-main row">
+        <div class="col-md-8 left">
+            <div class="layui-tab" id="tab-box">
+                <ul class="layui-tab-title">
+                    <li class="layui-this">
+                        <a href="#room_list">房源列表</a>
+                    </li>
+                    <li>
+                        <a href="#hotel_about">酒店介绍</a>
+                    </li>
+                    <li>
+                        <a href="#hotel_zhengce">酒店政策</a>
+                    </li>
+                    <li>
+                        <a href="#hotel_sheshi">酒店设施</a>
+                    </li>
+                    <li>
+                        <a href="#hotel_comments">客户评价</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="room_list" id="room_list">
+                <div class="room_info row">
+                    <div class="col-md-2"><img
+                            lay-src="http://dimg12.c-ctrip.com/images/fd/hotel/g4/M06/36/7B/CggYHlY4tTuAfTdWAATsdU8t74U929_R_130_130.jpg">
+                    </div>
+                    <div class="col-md-7">
+                        <p class="room_type_name">大房间</p>
+                        <p class="room_type_info">
+                            <span>大床房(1.5米)</span> |
+                            <span>免费有线</span> |
+                            <span>最多住2人</span> |
+                            <span>面积5m<sup>2</sup></span> |
+                            <span>楼层1层</span>
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <ul class="layui-nav">
+                            <li class="layui-nav-item">
+                                <a href="javascript:;">更多房型</span> </a>
+                                <dl class="layui-nav-child">
+                                    <dd><a onclick="get_rooms(1)">大床</a></dd>
+                                    <dd><a onclick="get_rooms(2)">双人床</a></dd>
+                                    <dd><a onclick="get_rooms(3)">多床</a></dd>
+                                    <dd><a onclick="get_rooms(4)">单人床</a></dd>
+                                </dl>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <table class="layui-table rooms" lay-even lay-skin="nob">
+                    <colgroup>
+                        <col width="30">
+                        <col width="180">
+                        <col width="80">
+                        <col width="100">
+                        <col width="80">
+                        <col>
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>名称</th>
+                        <th>床型</th>
+                        <th>早餐</th>
+                        <th>窗户</th>
+                        <th>日均价</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody id="rooms"></tbody>
+                </table>
+            </div>
+            <div class="hotel_about" id="hotel_about">
+                <h3>酒店介绍</h3>
+                <div class="content">
+                    {$info.content}
+                </div>
+            </div>
+            <div class="hotel_zhengce" id="hotel_zhengce">
+                <h3>酒店政策</h3>
+                <div class="content">
+                    暂无
+                </div>
+            </div>
+            <div class="hotel_sheshi" id="hotel_sheshi">
+                <h3>酒店设施</h3>
+                <div class="content">
+                    <ul>
+                        {if condition = '$info.is_tel'}
+                        <li><i class="layui-icon success">&#xe605;</i> 固定电话</li>
+                        {else /}
+                        <li><i class="layui-icon error">&#x1006;</i> 固定电话</li>
+                        {/if}
+                        {if condition = '$info.is_wifi'}
+                        <li><i class="layui-icon success">&#xe605;</i> 无限网络</li>
+                        {else /}
+                        <li><i class="layui-icon error">&#x1006;</i> 无限网络</li>
+                        {/if}
+                        {if condition = '$info.is_park'}
+                        <li><i class="layui-icon success">&#xe605;</i> 收费停车</li>
+                        {else /}
+                        <li><i class="layui-icon error">&#x1006;</i> 收费停车</li>
+                        {/if}
+                        {if condition = '$info.is_jicun'}
+                        <li><i class="layui-icon success">&#xe605;</i> 行李寄存</li>
+                        {else /}
+                        <li><i class="layui-icon error">&#x1006;</i> 行李寄存</li>
+                        {/if}
+                        {if condition = '$info.is_jiaoxing'}
+                        <li><i class="layui-icon success">&#xe605;</i> 叫醒服务</li>
+                        {else /}
+                        <li><i class="layui-icon error">&#x1006;</i> 叫醒服务</li>
+                        {/if}
+                    </ul>
+                    </p>
+                </div>
+            </div>
+            <div class="hotel_comments" id="hotel_comments">
+                <h3>客户评价</h3>
+                <div class="content">
+                    <div class="row">
+                        <div class="col-md-5" style="border-right: 1px dashed #dddddd;">
+                            <div class="score">
+                                <div style="width: 100px;">
+                                    <div class="c100 p{$info.manyidu} small orange">
+                                        <span><i class="layui-themes-color">{$info.score}</i> /5分</span>
+                                        <div class="slice">
+                                            <div class="bar"></div>
+                                            <div class="fill"></div>
+                                        </div>
+                                        <p class="orange-total">共 {$info.comments} 条评论</p>
+                                    </div>
+                                </div>
+                                <div style="width: 176px;padding-top:10px;margin-left: 100px;">
+                                    <p style="font-size: 16px;">
+                                        <span class="layui-themes-color"
+                                              style="font-size: 20px;">{$info.manyidu}%</span>
+                                        的用户满意
+                                    </p>
+                                    <p>
+                                        <span>周边环境：4.4</span>
+                                        <span>酒店设施：4.4</span>
+                                    </p>
+                                    <p>
+                                        <span>周边环境：4.4</span>
+                                        <span>酒店设施：4.4</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7 score-info">
+                            <p>大家觉得</p>
+                            <ul>
+                                <li class="item">位置便利（233）</li>
+                                <li class="item">位置便利（233）</li>
+                                <li class="item">位置便利（233）</li>
+                                <li class="item">位置便利（233）</li>
+                                <li class="item">位置便利（233）</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment-list-box">
+                    <div class="box"></div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-4 right">
+            <div id="map">
+                <div id="l-map"></div>
+            </div>
+            <div class="history">
+                <h3>我浏览过的酒店</h3>
+                <ul>
+                    {volist name='history' id='so'}
+                    <li><a href="{:url('/home/hotel/info',['id'=>$so.id])}" target="_blank">{$so.title}</a></li>
+                    {/volist}
+                </ul>
+            </div>
+            <div class="meishi">
+                <h3>推荐美食</h3>
+                <ul>
+                    <li class="meshi-item">
+                        <a href="#">
+                            <div class="row">
+                                <div class="col-md-3 thumb">
+                                    <img lay-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_E-XQF16VRLT6_LMYcNuoQsNAZ6qimAgpfJzO91_aJ_5DH1pT"
+                                         alt="">
+                                </div>
+                                <div class="col-md-9 info">
+                                    <p>麻辣小龙虾</p>
+                                    <div class="price_saled">
+                                        <span class="price">￥<span class="layui-themes-color">88</span></span>
+                                        <span class="saled">已售 8 份</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="meshi-item">
+                        <a href="#">
+                            <div class="row">
+                                <div class="col-md-3 thumb">
+                                    <img lay-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_E-XQF16VRLT6_LMYcNuoQsNAZ6qimAgpfJzO91_aJ_5DH1pT"
+                                         alt="">
+                                </div>
+                                <div class="col-md-9 info">
+                                    <p>麻辣小龙虾</p>
+                                    <div class="price_saled">
+                                        <span class="price">￥<span class="layui-themes-color">88</span></span>
+                                        <span class="saled">已售 8 份</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="meshi-item">
+                        <a href="#">
+                            <div class="row">
+                                <div class="col-md-3 thumb">
+                                    <img lay-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_E-XQF16VRLT6_LMYcNuoQsNAZ6qimAgpfJzO91_aJ_5DH1pT"
+                                         alt="">
+                                </div>
+                                <div class="col-md-9 info">
+                                    <p>麻辣小龙虾</p>
+                                    <div class="price_saled">
+                                        <span class="price">￥<span class="layui-themes-color">88</span></span>
+                                        <span class="saled">已售 8 份</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" value="{$info.id}" id="hotel_id">
+</div>
+{/block}
+{block name="script"}
+<script src="__JS__/home/common.js"></script>
+<script src="__JS__/home/hotel_info.js"></script>
+<script src="__JS__/home/hotel_info_slideshow.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=eWFdVOh3VUl7ZbBtRwSzxe0bkjNk37EH"></script>
+<script type="text/javascript">
+    initGalleryScript();	// Initialize script
+</script>
+<script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map("l-map");            // 创建Map实例
+    map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);
+    var local = new BMap.LocalSearch(map, {
+        renderOptions: {map: map, panel: "r-result"}
+    });
+    local.search("{$info.address}");
+</script>
+{/block}

@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+/*酒店页面幻灯*/
+/*@Author torans qq:321870617@qq.com*/
+
+
+/*头部*/
+.head{background: #eeeeee;padding:25px 0px;}
+.head .slideBox{height: 330px;min-width:682px; }
+.head .slideBox .bd{height: 330px;width: 682px;}
+.head .slideBox .hd{z-index: 9999;left: 30%;}
+.head .slideBox .bd ul li{height: 330px;width: 740px;}
+.head .slideBox .bd ul li a{height: 330px;}
+.head .layui-tab {background: #ffffff;margin: 0px;}
+.head .layui-tab .layui-tab-title{border-bottom: 1px solid #fe9a11;}
+.head .layui-tab .layui-tab-title .layui-this{background: #fe9a11;margin: 0px;color: #ffffff;font-size: 16px;width: 50%;}
+.head .layui-tab .layui-form .layui-form-label {width: 88px;}
+
+/*TAB 样式重构*/
+.layui-wrap .layui-tab-content {padding: 0px;}
+.layui-wrap .layui-tab-title {border-bottom: 3px solid #2377e2;}
+.layui-wrap .layui-tab-title .title{font-size: 30px;color: #9b9b9b;padding-right:40px; }
+.layui-wrap .layui-tab-title .more{text-align: right;float: right}
+.layui-wrap .layui-tab-title .layui-this{color: #ffffff;background: #2377e2;border-radius: 2px;padding: 3px ;line-height: 16px;}
+.layui-wrap .layui-tab-title .layui-this:after{border:0px; }
+
+/*酒店列表*/
+.hotel-list{}
+.hotel-list li{border-bottom: 1px solid #ddd;padding: 32px 0px; }
+.hotel-list .thumb img{width: 100%;max-height: 111px;overflow: hidden}
+.hotel-list .info .title a{font-size: 24px;font-weight:300;color: #393939}
+.hotel-list .info .about{font-size: 14px;color: #999}
+.hotel-list .info .address{font-size: 14px;color: #393939}
+.hotel-list .info .address img{width: 20px;}
+
+.hotel-list .price-box .box{vertical-align: middle}
+.hotel-list .price-box .box .price{color: #999}
+.hotel-list .price-box .box .price b{color: #fe9a11;font-size: 20px;}
+
+
+/*左边栏*/
+.side{}
+.side ul li{margin-bottom: 10px;}
+.side ul li img{width: 100%;border: 1px solid #ddd;}
+.side .side-ads{}
+.side .side-ads img{width: 100%;margin-top: 20px;}

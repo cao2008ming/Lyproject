@@ -1,0 +1,42 @@
+{extend name="base" /}
+{block name='title'}关于我们 -{/block}
+{block name="css"}
+<link rel="stylesheet" href="__CSS__/home/about.css?{$Think.config.update_version}">
+{/block}
+{block name="body"}
+<div class="layui-main">
+    <div class="content-box row">
+        <div class="col-md-1">
+            <div class="about-nav"  id="side-bar">
+                <ul>
+                    <li class="this"><a href="{:url('/home/about/AboutUs')}">关于驴友</a></li>
+                    <li><a href="{:url('/home/news')}">新闻资讯</a></li>
+                    <li><a href="{:url('/home/about/joinUs')}">加入我们</a></li>
+                    <li><a href="{:url('/home/about/contactUs')}">联系我们</a></li>
+                    <li><a href="{:url('/home/about/notices')}">免责申明</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-11 box-right">
+            <h1 class="about-title">About Us</h1>
+            <p class="company-title">贵州驴友天下旅行社公司</p>
+            <p class="company-en">GUIZHOU LVYOUTIANXIA AGENCIES CO.,LTD.</p>
+            <div class="clear"></div>
+            <div class="content">
+              {$info.content}
+            </div>
+            <div class="row more">
+                <div class="col-md-6">
+                    <a href="{:url('/home/news')}"><img src="__IMAGES__/news-more.png" alt="新闻中心"></a>
+                </div>
+                <div class="col-md-6">
+                    <a href="{:url('/home/about/JoinUs')}"><img src="__IMAGES__/joinus-more.png" alt="加入我们"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script src="__JS__/home/about.js?{$Think.config.update_version}"></script>
+{/block}

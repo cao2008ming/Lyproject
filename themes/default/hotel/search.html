@@ -1,0 +1,177 @@
+{extend name="base" /}
+{block name="css"}
+<link rel="stylesheet" href="__CSS__/home/hotel_search.css?{$Think.config.update_version}" media="all">
+{/block}
+{block name="body"}
+<div class="layui-main">
+    <div class="breadcrumbs">
+       <span class="layui-breadcrumb">
+          <a href="/">首页</a>
+          <a href="{:url('/home/hotel/index')}">酒店预订</a>
+          <a><cite>酒店搜索</cite></a>
+        </span>
+    </div>
+    <div class="search-bar">
+        <form class="layui-form" action="">
+            <div class="layui-form-item">
+                <div class="layui-input-inline" style="width: 104px;">
+                    <select name="city" id="city">
+                        <option value="">请选择城市</option>
+                        {volist name='citys' id='vo'}
+                        <option value="{$vo.name}" id="option_{$vo.name}">{$vo.name}</option>
+                        {/volist}
+                    </select>
+                </div>
+                <div class="layui-input-inline"  style="width: 400px;">
+                    <input type="text" name="keywords" required lay-verify="required" placeholder="关键词:如地标\酒店名称等"
+                           autocomplete="off" class="layui-input" id="keywords">
+                </div>
+                <div class="layui-input-inline" style="width: 140px;">
+                    <input class="layui-input" placeholder="入住时间" id="start_s">
+                </div>
+                <div class="layui-input-inline" style="width: 140px;">
+                    <input class="layui-input" placeholder="退房时间" id="start_e">
+                </div>
+                <div class="layui-input-inline" style="width: 110px;">
+                    <input type="number" name="num"  placeholder="预订房间数"
+                           autocomplete="off" class="layui-input" id="num">
+                </div>
+                <div class="layui-input-inline" style="width:86px;">
+                    <button class="layui-btn layui-btn-danger">快速搜索</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="filter">
+        <div class="container1">
+            <div class="box">
+                <div class="title-h">按条件筛选</div>
+               <!-- <dl>
+                    <dt>位置</dt>
+                    <dd>
+                        <a rel="" name="mode" class="all on">不限</a>
+                        <a rel="股权融资" name="mode" class="sx_child">1-2天</a>
+                        <a rel="债权融资" name="mode" class="sx_child">3-4天</a>
+                        <a rel="债权融资" name="mode" class="sx_child">5-7天</a>
+                        <a rel="债权融资" name="mode" class="sx_child">7天以上</a>
+                    </dd>
+                </dl>-->
+                <dl>
+                    <dt>星级</dt>
+                    <dd>
+                        <a rel="" name="star" class="all on">不限</a>
+                        {volist name='star_list' id='star'}
+                        <a rel="{$star.id}" name="star" class="sx_child">{$star.name}</a>
+                        {/volist}
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>价格</dt>
+                    <dd>
+                        <a rel="" name="price" class="all on">不限</a>
+                        <a rel="50,400" name="price" class="sx_child">400RMB以下</a>
+                        <a rel="400,1000" name="price" class="sx_child">400-1000RMB</a>
+                        <a rel="1100,1500" name="price" class="sx_child">1100-1500RMB</a>
+                        <a rel="1500,5000" name="price" class="sx_child">1500RMB以上</a>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <div class="warp">
+        <div class="row">
+            <div class="col-md-8 left">
+                <!--排序-->
+                <div class="sort-box" id="sort-box">
+                    <ul class="sort">
+                        <li class="sort-btn by-star sortByPriceDown" id="sortByPriceDown" data-by="1">价格⥯</li>
+                        <li class="sort-btn by-star sortByNumDown">序号⥯</li>
+                    </ul>
+                    <span class="sort-total">共有 888 家酒店</span>
+                </div>
+                <!--酒店列表-->
+                <div class="hotel-box">
+                    {if condition='$hotel_list eq null'}
+                        <div class="empty">
+                            <img src="" alt="">
+                            <span>抱歉，未搜索到相关酒店</span>
+                        </div>
+                    {/if}
+                    <ul class="hotel-list" id="hotel-list">
+                        {volist name='hotel_list' id='so'}
+                        <li>
+                            <div class="row">
+                                <div class="col-md-3 thumb">
+                                    <a href="{:url('/home/hotel/info/id/'.$so['id'])}">
+                                    <img src="{$so.thumb}" alt="{$so.city_id}{$so.name}">
+                                    </a>
+                                </div>
+                                <div class="col-md-6 info">
+                                    <h3 class="hotel-name">
+                                        <a href="{:url('/home/hotel/info/id/'.$so['id'])}">{$so.name}</a>
+                                    </h3>
+                                    <div class="star star-4">
+
+                                    </div>
+                                    <div class="hotel-info">
+                                        {$so.info|substr=0,144}
+                                    </div>
+                                    <div class="hotel-score-comment">
+                                        <span class="score">用户评分：{$so.id|get_hotel_avg_score} /5分</span>
+                                        <span class="comment">来自 {$so.id|get_hotel_comments_total} 条客户点评</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 price">
+                                    <div class="price-box">
+                                        <p>
+                                            <span class="rmb">
+                                                <sup>RMB</sup>
+                                            </span>
+                                            <span class="money">{$so.price} </span>
+                                            <span class="qi">起</span>
+                                        </p>
+                                        <p class="newst-checkin">{$so.id|get_hotel_checkin_newsttime|mdate}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        {/volist}
+                    </ul>
+                </div>
+                {$hotel_list->render()}
+            </div>
+            <div class="col-md-4">
+             <!--   <div id="map">
+                    <div id="l-map"></div>
+                </div>-->
+                <div class="panel panel-default" id="map">
+                    <div class="panel-heading">我浏览过的酒店</div>
+                    <div class="list-group">
+                        {volist name='history' id='to'}
+                        <a href="{:url('/home/hotel/info',['id'=>$to.id])}" class="list-group-item">{$to.title}</a>
+                        {/volist}
+                        {if condition = "$history eq null"}
+                        <a  class="list-group-item">您还没浏览过任何酒店</a>
+                        {/if}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name='script'}
+<script src="__JS__/home/common.js?{$Think.config.update_version}"></script>
+<script src="__JS__/home/hotel_search.js?{$Think.config.update_version}"></script>
+<script>
+    $(function(){
+        new SelectTag({
+            child : ".sx_child", //所有筛选范围内的子类
+            over : 'on', //选中状态样式名称
+            all : ".all"
+        });
+    })
+</script>
+
+{/block}

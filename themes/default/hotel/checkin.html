@@ -1,0 +1,130 @@
+{extend name="base" /}
+{block name="css"}
+<link rel="stylesheet" href="__CSS__/home/steps.css?{$Think.config.update_version}">
+<link rel="stylesheet" href="__CSS__/home/checkin.css?{$Think.config.update_version}">
+{/block}
+{block name="body"}
+
+<div class="layui-main">
+    <div class="breadcrumb-box">
+            <span class="layui-breadcrumb" lay-separator=">">
+              <a>当前位置</a>
+              <a href="/">首页</a>
+              <a href="{:url('hotel/index')}"> 酒店预订</a>
+              <a><cite>信息登记</cite></a>
+            </span>
+    </div>
+    <div class="steps">
+        <ul class="status-bar">
+            <li class="checked">
+                第一步:登记入住信息
+                <i class="triangle-right-bg"></i>
+                <i class="triangle-right"></i>
+            </li>
+            <li>
+                第二步：在线支付
+                <i class="triangle-right-bg"></i>
+                <i class="triangle-right"></i>
+            </li>
+            <li>
+                第三步：完成
+            </li>
+
+        </ul>
+    </div>
+</div>
+<div class="checkin-box">
+    <div class="layui-main">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <form class="layui-form" action="{:url('hotel/checkin')}" method="post">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">入住酒店</label>
+                        <div class="layui-input-block">
+                            <input type="text" value="{$hotel_name}" required lay-verify="required" disabled
+                                   autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">入住房型</label>
+                        <div class="layui-input-block">
+                            <input type="text" value="{$room_name}" required lay-verify="required" disabled
+                                   autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">入住时间</label>
+                        <div class="layui-input-inline" style="width: 100px;">
+                            <input class="layui-input" name='checkin_start' value="{$checkin_start}" id="checkin_s">
+                        </div>
+                        <div class="layui-form-mid layui-word-aux">
+                            至
+                        </div>
+                        <div class="layui-input-inline" style="width: 100px;margin-left: 0px;">
+                            <input class="layui-input" name='checkin_end' value="{$checkin_end}" id="checkin_e">
+                        </div>
+                        <div class="layui-form-mid layui-word-aux" style="font-size: 16px;">
+                            <a class="layui-btn layui-btn-small" onclick="check()" style="margin-top: -5px;">计算天数</a>
+                            共 <span class="layui-color-red" id="days" style="font-size: 18px;">1</span> 晚
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">房间数量</label>
+                        <div class="layui-input-inline" style="width: 50px;">
+                            <input type="num" name="checkin_num" id="checkin_num" required lay-verify="required"
+                                   autocomplete="off" class="layui-input" value="1">
+                        </div>
+                        <div class="layui-form-mid layui-word-aux">
+                            房费 ￥<span class="layui-color-red" id="amount">{$unit}</span>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline" style="margin-right: 7px;">
+                            <label class="layui-form-label">
+                                <span class="layui-color-red">客户姓名</span>
+                            </label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="checkin_info[]" required="" lay-verify="required"
+                                       autocomplete="off" class="layui-input name-input">
+                            </div>
+                        </div>
+                        <span id="ids"></span>
+                    </div>
+                    <div class="layui-form-mid layui-word-aux" id="notice-box">
+                        所填姓名需与入住时所持证件一致。
+                        <a id='notice'>填写规则</a>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">协议签署</label>
+                        <div class="layui-input-inline" style="margin-left: 30px;width: 12px;">
+                            <input type="checkbox" name="xieyi" id="xieyi" lay-skin="primary">
+                        </div>
+                        <div class="layui-form-mid layui-word-aux" style="font-size: 14px;color: #393d49">
+                            阅读 <a class="layui-color-red" onclick="openxieyi()">《客户入住协议》</a>
+                        </div>
+                    </div>
+                    <div class="layui-form-item layui-form-text">
+                        <label class="layui-form-label">备注说明</label>
+                        <div class="layui-input-block">
+                            <textarea name="checkin_comment" placeholder="请输入内容" class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <input type="hidden" id="unit" value="{$unit}">
+                            <input type="hidden" name='hotel_id' value="{$hotel_id}">
+                            <input type="hidden" name='room_id' value="{$room_id}">
+                            <input type="hidden" name='user_id' value="{:session('user_id')}">
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                            <button class="layui-btn" lay-submit lay-filter="checkin">下一步</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script src="__JS__/home/checkin.js?{$Think.config.update_version}"></script>
+{/block}

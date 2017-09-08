@@ -1,0 +1,64 @@
+@charset "UTF-8";
+/**
+ * Created by torans(321870617@QQ.COM) on 17/7/13.
+ *
+ * 
+ */
+
+.breadcrumbs{padding: 30px 0; }
+.bus-info{padding: 30px;border: 1px solid #ddd;margin-bottom: 30px;}
+.bus-info .thumb{max-height: 304px;overflow: hidden}
+.bus-info .thumb img{width: 100%}
+
+.bus-info .info{ background: #f5f5f5;padding: 40px;margin: 0px;}
+.bus-info .info h3{font-size: 28px;font-weight: 400;}
+.bus-info .info h3 span{font-size: 16px;font-weight: 400;margin-left: 30px;}
+
+.bus-info .info .bus-price{font-size: 16px;margin: 6px 0;}
+.bus-info .info .bus-price .price{font-size: 20px;font-weight:600;color: #ff9222;margin-left: 16px;}
+.bus-info .info .bus-price .notice{color: #00a0e9;margin:0 16px;}
+.bus-info .info .bus-price .score{text-align: right;float: right;font-size: 16px;}
+.bus-info .info .bus-price .score .comments{color: #888888}
+.bus-info .info .service{font-size: 16px;}
+
+/*日历*/
+.calendar-box{background: #f5f5f5;padding: 16px;}
+.fc-basic-view .fc-body .fc-row{min-height: 47px;background: #fff;}
+.fc-event, .fc-event-dot {background-color: #3aad58;}
+.fc-event{border: 0px solid #3a87ad;border-radius: 10px; }
+.fc-day-grid-event .fc-content{text-align: center}
+.fc-unthemed td.fc-today {background: #eeeeee;}
+tr:first-child > td > .fc-day-grid-event {margin-top: -1px;}
+
+/*取车信息*/
+.quche-info{font-size: 16px;}
+.quche-info p{font-size: 16px;}
+.quche-info p .p-label{font-size: 16px;color: #888888}
+.quche-info .address{border: 1px dashed #ddd;border-radius: 10px;padding: 16px;margin:16px 0;}
+.quche-info .days{}
+.quche-info .days .layui-form-label{width: 82px;text-align: left;padding-left: 0px;padding-right:0px;font-size: 16px;color: #888888}
+
+/*立即预约*/
+.queren{top:50px;}
+.queren .queren-button{width: 100px;height: 100px;border-radius: 100px;background: #ff5722;text-align: center}
+.queren .queren-button a{color: #ffffff;line-height: 100px;font-size: 20px;}
+
+/*左边栏*/
+.bus-content-box{margin-bottom: 30px;}
+.left .left-nav {}
+.left .left-nav ul{background: #f5f5f5;text-align: left;height: 46px;padding-left: 16px;margin-bottom: 30px;}
+.left .left-nav ul li{float: left;line-height: 46px;margin-right: 30px;padding: 0 16px;}
+
+.left .content-box{margin-bottom: 30px;}
+.left .content-box .box-title{font-size: 24px;font-weight:600;color: #2576e0;border-bottom: 1px solid #e4e4e4;padding-bottom: 16px;}
+.left .content-box .content{padding: 16px 0;}
+
+.right{}
+.right .rementuijian{}
+.right .rementuijian h3{line-height: 14px;font-size: 16px;background: #f5f5f5;padding: 16px;font-weight: 600;}
+.right .rementuijian ul li{padding: 16px 0;border-bottom: 1px solid #ddd;}
+.right .rementuijian .thumb{padding-right:16px; }
+.right .rementuijian .title{}
+.right .rementuijian p:first-child{font-size: 18px;font-weight: 600;}
+.right .rementuijian p:last-child{font-size: 16px;color: #ff5722}
+.right .rementuijian a img{width: 100%}

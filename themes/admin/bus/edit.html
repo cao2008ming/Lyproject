@@ -1,0 +1,186 @@
+{extend name="base" /}
+{block name="css"}
+<style>
+    #id_photo_a_view,#id_photo_b_view,#zizhi_view{width: 392px;height: 232px;border: 1px solid #009688;}
+    #thumb_view{width: 240px;height: 180px;}
+    .thumb_upbar{position: absolute;top: 60%;left: 17%;margin: -18px 0 0 -56px;}
+    .photo_upbar .layui-upload-button {color: rgba(255,255,255,1);color: #009688}
+</style>
+{/block}
+{block name="body"}
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class=""><a href="{:url('admin/bus/index')}">车辆管理</a></li>
+            <li class="layui-this">修改车辆信息</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form form-container" action="{:url('admin/bus/update')}" method="post">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">标题</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="bus_name" value="{$data.bus_name}" required  lay-verify="required"  class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">租车价格</label>
+                        <div class="layui-input-inline">
+                            <input type="number" name="bus_price" value="{$data.bus_price}" required  lay-verify="required"  class="layui-input">
+                        </div>
+                        <div class="layui-form-mid layui-word-aux">元/天</div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">档位</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="bus_dangwei" value="1" title="自动挡" {if condition="$data.bus_dangwei eq 1"}checked = checked{/if}>
+                            <input type="radio" name="bus_dangwei" value="2"  checked="checked" title="手动挡" {if condition="$data.bus_dangwei eq 2"}checked = checked{/if}>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">座位数</label>
+                        <div class="layui-input-block">
+                            <input type="number" name=" bus_zuowei" value="{$data.bus_zuowei}" required  lay-verify="required" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">取车地址</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="bus_address" value="{$data.bus_address}" required  lay-verify="required" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">租车须知</label>
+                        <div class="layui-input-block">
+                            <textarea name="bus_shuoming1" class="layui-textarea" id="bus_shuoming1">
+                                {$data.bus_shuoming1}
+                            </textarea>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">订单须知</label>
+                        <div class="layui-input-block">
+                            <textarea name="bus_shuoming2" class="layui-textarea" id="bus_shuoming2">
+                                 {$data.bus_shuoming2}
+                            </textarea>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">取还车说明</label>
+                        <div class="layui-input-block">
+                            <textarea name="bus_shuoming3" class="layui-textarea" id="bus_shuoming3">
+                                 {$data.bus_shuoming3}
+                            </textarea>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">保险说明</label>
+                        <div class="layui-input-block">
+                            <textarea name="bus_shuoming4"  class="layui-textarea" id="bus_shuoming4">
+                                {$data.bus_shuoming4}
+                            </textarea>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">多退少补</label>
+                        <div class="layui-input-block">
+                            <textarea name="bus_shuoming5" class="layui-textarea" id="bus_shuoming5">
+                                 {$data.bus_shuoming4}
+                            </textarea>
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">缩略图</label>
+                        <div class="layui-input-block">
+                            <img id="thumb_view" src="{$data.bus_thumb}">
+                            <input type="hidden" name="bus_thumb" value="{$data.bus_thumb}" class="layui-input layui-input-inline" id="thumb">
+                            <div class="thumb_upbar">
+                                <input type="file" name="file" class="layui-upload-file thumb">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <input type="hidden" name="bus_id" value="{$data.bus_id}">
+                            <button class="layui-btn" lay-submit lay-filter="*">保存</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="js"}
+<script src="__JS__/ueditor/ueditor.config.js"></script>
+<script src="__JS__/ueditor/ueditor.all.min.js"></script>
+<script src="__JS__/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="__JS__/citys.js"></script>
+{/block}
+{block name="script"}
+<script>
+    $(function() {
+        var ue = UE.getEditor('content'),
+            uploadEditor = UE.getEditor('upload-photo-btn'),
+            photoListItem,
+            uploadImage;
+
+        uploadEditor.ready(function () {
+            uploadEditor.setDisabled();
+            uploadEditor.hide();
+            uploadEditor.addListener('beforeInsertImage', function (t, arg) {
+                $.each(arg, function (index, item) {
+                    photoListItem = '<div class="photo-list"><input type="text" name="photo[]" value="' + item.src + '" class="layui-input layui-input-inline">';
+                    photoListItem += '<button type="button" class="layui-btn layui-btn-danger remove-photo-btn">移除</button></div>';
+
+                    $('#photo-container').append(photoListItem).on('click', '.remove-photo-btn', function () {
+                        $(this).parent('.photo-list').remove();
+                    });
+                });
+            });
+        });
+
+        $('#upload-photo-btn').on('click', function () {
+            uploadImage = uploadEditor.getDialog("insertimage");
+            uploadImage.open();
+        });
+    });
+
+    //图片上传
+    layui.upload({
+        url: "/api/upload/upload",
+        type: 'image',
+        elem:'.thumb',
+        title:'上传缩略图',
+        ext: 'jpeg|jpg|png|gif|bmp',
+        success: function (data) {
+            if (data.error === 0) {
+                layer.msg('上传成功');
+                document.getElementById('thumb').value = data.url;
+                document.getElementById('thumb_view').src = data.url;
+            } else {
+                layer.msg(data.message);
+            }
+        }
+    });
+
+    layui.use('layedit', function(){
+        var layedit = layui.layedit;
+        layedit.build('bus_shuoming1'); //建立编辑器
+        layedit.build('bus_shuoming2'); //建立编辑器
+        layedit.build('bus_shuoming3'); //建立编辑器
+        layedit.build('bus_shuoming4'); //建立编辑器
+        layedit.build('bus_shuoming5'); //建立编辑器
+        layedit.build('bus_shuoming5', {
+            height: 100 //设置编辑器高度
+        });
+    });
+</script>
+{/block}

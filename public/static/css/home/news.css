@@ -1,0 +1,16 @@
+@charset "UTF-8";
+/**
+ * Created by torans(321870617@QQ.COM) on 17/7/11.
+ *
+ * 
+ */
+
+.about-title{padding-bottom: 0px!important;}
+
+.content ul li{padding: 20px 0;border-bottom: 1px dashed #e4e4e4}
+.content .thumb img{width: 100%;border-radius: 4px;}
+.content .info h4{font-size: 24px;font-weight: 600}
+.content .info .time{text-align: right}
+.content .info .time span{text-align: center;background: #eee;padding: 8px;}
+
+

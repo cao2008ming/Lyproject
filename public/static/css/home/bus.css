@@ -1,0 +1,51 @@
+/*酒店页面幻灯*/
+/*@Author torans qq:321870617@qq.com*/
+
+
+
+/*TAB 样式重构*/
+.head .search{}
+.head .search{width: 430px;float: left;margin-top: -310px;background: #fff;box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);}
+.head .search .layui-form .layui-form-item{margin-bottom: 8px;}
+.head .search .layui-tab-title .layui-this { background: #21c121;width: 50%;color: #ffffff;font-size: 16px;}
+.head .search .layui-tab-title{border-bottom: 3px solid #21c121;height: 43px;}
+.head .search .layui-form .layui-form-item .layui-form-label{width: 86px;}
+
+/*幻灯重构*/
+.slideBox{height: 368px;}
+.slideBox .hd {left: 60%;bottom: 40px;}
+@charset "utf-8";
+
+/*nav-bar*/
+.nav-bar{border-bottom: 24px solid #f2f3f5;text-align: center;color: #71767a;}
+.nav-bar .bar-item{border-right: 1px solid #ddd;padding: 18px 0;}
+.nav-bar .bar-item:last-child{border-right: 0px solid #ddd;}
+.nav-bar .bar-item span{display: block;padding-top: 8px;font-size: 16px;}
+.nav-bar .bar-item .bus-icon{display: inline-block;width: 42px;height: 34px;margin: auto;}
+.nav-bar .bar-item .bus-icon-1{background-position:  -200px 0;}
+.nav-bar .bar-item .bus-icon-2{background-position:  -260px 0;width: 29px;height: 34px;}
+.nav-bar .bar-item .bus-icon-3{background-position:  -320px 0;width: 28px;height: 34px;}
+.nav-bar .bar-item .bus-icon-4{background-position:  -380px 0;width: 33px;height: 34px;}
+.bus-icon-1,.bus-icon-2,.bus-icon-3,.bus-icon-4{
+    background: url(../../images/home/icon/icon.png) no-repeat;}
+
+/*热门推荐*/
+.hot{margin:60px 0; }
+.hot h3{text-align: center;font-size: 34px;color: #8d8d8d;margin-bottom: 60px;}
+
+.hot ul{height: 30px;margin-bottom: 40px;}
+.hot ul li{float: left;line-height: 30px;height: 30px;margin-right: 20px;font-size: 18px;}
+.hot ul li a{font-size: 18px;}
+.hot ul .line-title{color: #74a8ed;}
+.hot .list .list-item{margin-bottom: 76px;padding: 0px;padding-right: 20px;}
+.hot .list .list-item .item-box{box-shadow: 0 2px 5px 0 rgba(0,0,0,.1)}
+/*.hot .list .list-item:nth-child(3){padding-right: 0px;}
+.hot .list .list-item:nth-child(6){padding-right: 0px;}
+.hot .list .list-item:nth-child(9){padding-right: 0px;}*/
+.hot .list .list-item img{width: 100%}
+
+.hot .list .list-item .item-title {background: #ffba00;position: absolute;width: 337px;height: 48px;top: 206px;left: 0;text-align: center;}
+.hot .list .list-item .item-title p{display: inline;padding: 14px;}
+.hot .list .list-item .item-title .title{float: left;font-size: 20px;}
+.hot .list .list-item .item-title .price{float: right;font-size: 14px;}
+.hot .list .list-item .item-title .money{font-size: 20px;color: #fff}

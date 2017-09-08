@@ -1,0 +1,31 @@
+@charset "UTF-8";
+/**
+ * Created by torans(321870617@QQ.COM) on 17/7/10.
+ *
+ * 
+ */
+
+body{background: url("../../images/about_bg.jpg") no-repeat}
+.content-box{margin: 140px 0;}
+.content-box .about-nav{background: #00a157;width: 250px;z-index: 9999;position: absolute;z-index: 321870617;margin-top: 114px;background: #eeeeee}
+.content-box .about-nav ul{text-align: center;}
+.content-box .about-nav ul li{height: 80px;line-height: 80px;border-bottom: 1px solid #e4e4e4;}
+.content-box .about-nav ul li:hover{background: #e8e2e2}
+.content-box .about-nav ul li:hover a{color: #fe1f2d}
+.content-box .about-nav ul li a{color: #888888;font-size: 24px;}
+.content-box .about-nav ul .this{background: #fe1f2d}
+.content-box .about-nav ul .this a{color: #fff;font-weight: 400;}
+.content-box .box-right{padding: 30px 60px 30px 240px;background: #fff}
+.content-box .box-right .about-title{background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAHklEQVQIW2NkQAU+jEh8HyB7C0wAzAFJggTgHJAAAFXuA1E5qtLyAAAAAElFTkSuQmCC);
+    -webkit-background-clip: text;-webkit-text-fill-color: transparent;font-size: 80px;font-weight: 600;color: #e4e4e4;padding: 30px 0;}
+.content-box .box-right .company-title{font-size: 28px;}
+.content-box .box-right .company-en{font-size: 12px;}
+.content-box .box-right .clear{border-bottom: 3px solid #00a0e9;margin: 16px 0;}
+.content-box .box-right .content{}
+.content-box .box-right .content p{padding: 8px 0;}
+.content-box .box-right .content img{max-width: 100%;}
+.content-box .box-right .more{margin-top: 16px;}
+.content-box .box-right .more img{max-width: 100%;}
+
+/*固定边栏*/
+.fixed{position: fixed!important;top:0px;border: 1px solid #e4e4e4}

@@ -1,0 +1,113 @@
+{extend name="base" /}
+{block name="css"}
+<link rel="stylesheet" href="__CSS__/home/steps.css?{$Think.config.update_version}">
+<link rel="stylesheet" href="__CSS__/payment.css?{$Think.config.update_version}">
+{/block}
+{block name="body"}
+<!--<div class="banner"></div>-->
+<div class="layui-main">
+    <div class="layui-main">
+        <div class="breadcrumb-box">
+            <span class="layui-breadcrumb" lay-separator=">">
+              <a>当前位置</a>
+              <a href="/">首页</a>
+              <a href="{:url('hotel/index')}"> 酒店预订</a>
+              <a><cite>在线支付</cite></a>
+            </span>
+        </div>
+        <div class="steps">
+            <ul class="status-bar">
+                <li class="checked">
+                    第一步:登记入住信息
+                    <i class="triangle-right-bg"></i>
+                    <i class="triangle-right"></i>
+                </li>
+                <li class="checked">
+                    第二步：在线支付
+                    <i class="triangle-right-bg"></i>
+                    <i class="triangle-right"></i>
+                </li>
+                <li>
+                    第三步：完成
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="order_info">
+        <div class="order_info_title">
+            <h3>酒店预订</h3>
+        </div>
+        <div class="order_info_content row">
+            <div class="col-md-4"><a href="{:url('/home/hotel/info',['id'=>$info.hotel_id])}" id="hotel_name">{$info.hotel_id|get_hotel_name}</a> </div>
+            <div class="col-md-2" id="room_num">{$info.checkin_num} 间</div>
+            <div class="col-md-2"><span class="layui-color-red">￥{$info.amount}</span> </div>
+            <div class="col-md-4" id="room_name">{$info.room_id|get_room_name}</div>
+        </div>
+    </div>
+    <div class="payment_box">
+        <div class="payment_box_title">
+            <h3>支付方式</h3>
+        </div>
+        <div class="ch row">
+            <div class="up col-md-4" id='upacp_wap' onclick="pay_model('upacp_wap','银联在线支付')">
+                <img src="__IMAGES__/pay/yinlian.png" alt="银联支付">
+            </div>
+            <div class="up col-md-4" id='alipay_wap' onclick="pay_model('alipay_wap','支付宝支付')">
+                <img src="__IMAGES__/pay/alipay.png" alt="支付宝支付">
+            </div>
+            <div class="up col-md-4" id='wx_pub' onclick="pay_model('wx_pub','微信支付')">
+                <img src="__IMAGES__/pay/weixin-pay.png" alt="微信支付">
+            </div>
+        </div>
+    </div>
+    <div class="pay">
+        <div class="row">
+            <div class="col-md-6 amount">
+                <span>应付：￥</span>
+                <span class="layui-color-red">{$info.amount}</span>
+            </div>
+            <div class="col-md-6 go_pay">
+                <input type="hidden" id="amount" value="{$info.amount}">
+                <input type="hidden" id="pay_model" value="">
+                <input type="hidden" id="orderNo" value="{$info.checkin_id}">
+                <button class="layui-btn layui-btn-danger layui-btn-big  layui-btn-disabled"  onclick="wap_pay()">确认支付</button>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script src="__JS__/ping.js?{$Think.config.update_version}" type="text/javascript"></script>
+<script>
+    function pay_model(channel,model) {
+        $('#pay_model').val(channel);
+        $('#'+channel).siblings().removeClass('up_checked').end().addClass('up_checked');
+        $('.layui-btn-disabled').removeClass('layui-btn-disabled');
+        $('#'+channel).addClass('up_checked')
+        layer.msg('您选择了 '+model+' 支付方式')
+    }
+
+    function wap_pay() {
+        var URL = web_url+'/home/payment/checkin';
+        var channel =  $('#pay_model').val();
+        var amount =  $('#amount').val();
+        var hotel_name =  $('#hotel_name').text();
+        var room_name =  $('#room_name').text();
+        var room_num =  $('#room_num').text();
+        var orderNo =  $('#orderNo').val();
+        var subject = '[酒店预订][demo]['+room_num+']-'+hotel_name + ''+room_name;
+        $.ajax({
+            type:'POST',
+            url:URL,
+            data:{ channel: channel,amount: amount,subject:subject,orderNo:orderNo},
+            success:function(data){
+                pingpp.createPayment(data, function(result, err) {
+                    console.log(result);
+                    console.log(err);
+                });
+            }
+        });
+    }
+</script>
+{/block}

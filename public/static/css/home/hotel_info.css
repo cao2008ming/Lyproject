@@ -1,0 +1,174 @@
+@charset "utf-8";
+
+/*酒店详情页面*/
+/*@Author torans qq:321870617@qq.com*/
+
+/*面包屑*/
+.breadcrumb-box{margin:24px 0;}
+
+/*快速搜索*/
+.search-box{background: #fefde4;padding: 18px 8px 0;margin-bottom: 38px;}
+.search-box .layui-form-item{margin-bottom: 0px;}
+
+/*酒店信息*/
+.hotel_info{background: #f8f8f8;padding: 40px 0;}
+.hotel_info .hotel_name{color: #666;margin-bottom: 40px;}
+.hotel_info .hotel_name .name{font-size: 28px;color: #333}
+
+.hotel_info .hotel_slide_and_price{padding: 26px 13px;background: #ffffff;margin: 10px 0;box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);}
+.hotel_info .hotel_slide_and_price .comments_and_price{padding:16px 0;border-bottom: 1px solid #ddd;margin-bottom: 16px;}
+.hotel_info .hotel_slide_and_price .comments_and_price .comments{padding: 0px;color: #b7b7b7;font-size: 14px;font-weight: 200;}
+.hotel_info .hotel_slide_and_price .comments_and_price .comments p:not(:last-child){margin-bottom: 4px;}
+.hotel_info .hotel_slide_and_price .comments_and_price .comments .score span{font-size: 20px;font-weight: 400}
+.hotel_info .hotel_slide_and_price .comments_and_price .comments .score .score_level{font-size: 19px;color: #00a2d4;font-weight: 400}
+.hotel_info .hotel_slide_and_price .comments_and_price .comments .lastCheckIn{font-size: 14px;color: #5dc366;}
+
+.hotel_info .hotel_slide_and_price .lastComments{font-size: 16px;color: #b7b7b7;padding: 16px 0;border-bottom: 1px solid #ddd; margin: 0 -15px;}
+.hotel_info .hotel_slide_and_price .lastComments .comments_content{font-size: 14px;color: #393d49;padding: 16px 0;}
+.hotel_info .hotel_slide_and_price .sheshi{font-size: 14px;color: #393d49;padding: 30px 0;margin: 0 -15px;}
+.hotel_info .hotel_slide_and_price .sheshi li{width: 30px;margin-right:4px;height: 30px;float: left;line-height: 30px;}
+.hotel_info .hotel_slide_and_price .sheshi li img{width: 100%;}
+
+/*酒店模块*/
+.fixed{position: fixed;background: #eee;top:0px;z-index: 99999;margin-top: 0px;width: 693px;}
+.map-fixed{position: fixed!important;background: #eee;top:0px;z-index: 99999;margin-top: 0px;}
+.room_box{margin:46px 0;}
+.room_box .layui-main{padding:0;}
+.room_box .left,.room_box .right{padding: 0px;}
+.room_box .right{padding-left: 40px;}
+.room_box .left .layui-tab .layui-tab-title{border-bottom: 3px solid #2478e3;}
+.room_box .left .layui-tab .layui-tab-title .layui-this{background: #2478e3;color: #fff}
+.room_box .left .layui-tab .layui-tab-title .layui-this a{color: #fff}
+.room_list{border: 1px solid #ddd}
+.room_list .room_info{background: #f4f8fe;padding: 15px;margin: 0;}
+.room_list .room_info img{width: 100%;border-radius: 10px;}
+.room_list .room_info .room_type_name{font-size: 22px;font-weight: 200;margin: 6px 0;}
+.room_list .room_info .layui-nav{background: none;margin-top: 10px;text-align: right}
+.room_list .room_info .layui-nav .layui-nav-item a{color:#FF5722 }
+.room_list .room_info .layui-nav .layui-nav-item a:hover{color:#333 }
+.room_list .room_info .layui-nav .layui-nav-more{border-color: #FF5722 transparent transparent; }
+
+
+/*酒店模块 - 房间列表*/
+.room_list .rooms{margin-top: -10px;}
+.left h3{font-size: 24px;margin: 26px 0;color: #2478e3}
+.left .content{border: 1px solid #ddd;color: #393939;padding: 24px;}
+.left .content img{max-width: 100%;}
+.left .hotel_sheshi ul{min-height: 60px;}
+.left .hotel_sheshi ul li{float: left;width: 25%;margin-bottom: 16px;font-size: 16px;color: #666}
+.left .hotel_sheshi ul li i{border-radius: 16px;}
+.left .hotel_sheshi ul li .error{ color: #FF5722;font-weight: 600;border: 1px solid #ff5722;}
+.left .hotel_sheshi ul li .success{ color:#5FB878;font-weight: 600;border: 1px solid #5FB878;}
+
+/*评论列表*/
+/*评论列表 -圆形进度条*/
+.score p span{font-size: 12px;}
+.score .orange-total{margin-top: 84px;text-align: center;font-size: 12px;color: #666 }
+
+/*评论列表-得分详情*/
+.score-info ul .item{float: left;margin: 4px 0;font-size: 12px;color: #FF5722;border: 1px solid #ff5722;padding: 2px 5px;margin-right: 10px;border-radius: 4px;    }
+.comment-list-box{}
+.comment-list-box .comment-list-box-item{border-bottom:1px solid #dddddd;padding: 16px 0px;}
+.comment-list-box li p{margin-top: 20px;}
+.comment-list-box li p span{color: #333333}
+.comment-list-box li .avatar{width: 55px;}
+.comment-list-box li .score-level{margin:0px;}
+.comment-list-box li .comments-photos {margin-top: 16px;}
+
+.comment-list-box li .comments-photos img{height: 80px;max-height: 80px;}
+.comment-list-box li .comments-photos img:not(:last-child){margin-right: 16px;  }
+
+/*地图*/
+.map-class{box-shadow: 1px 1px 4px rgba(0,0,0,.3)!important; }
+#l-map{height:300px;width:100%;}
+#r-result{width:100%;}
+
+/*历史浏览记录*/
+.history{margin-top: 28px;border: 1px solid #ddd;}
+.history h3{background: #f4f4f4;padding:12px;border-bottom: 1px solid #ddd;font-size: 18px;}
+.history ul {padding: 16px;}
+.history ul li {height: 30px; line-height: 30px;}
+.history ul li a{font-size: 16px;}
+
+/*美食推荐*/
+.meishi{margin-top: 28px;background: #f1f1f1}
+.meishi h3{padding: 12px;font-size: 18px;background: #ddd;}
+.meishi ul{padding: 16px;}
+.meishi ul li{padding: 8px;border-bottom: 1px dashed #ddd;}
+.meishi ul li a .thumb{padding: 0px;}
+.meishi ul li a .thumb img{width: 100%;border-radius: 10px;}
+.meishi ul li a .info p{padding-top:6px;font-size: 16px;font-weight: 400;color: #0a6ea7;}
+.meishi ul li a .info .price_saled{font-size: 14px;margin-top: 4px;color: #666}
+.meishi ul li a .info .price_saled .price{font-size: 18px;}
+.meishi ul li a .price_saled .saled{font-size: 14px;color: #888;text-align:right;float: right;margin-top: 5px;}
+
+/*相册*/
+#mainContainer{
+    margin:0 auto;
+    width:100%;
+    text-align:left;
+}
+.clear{
+    clear:both;
+}
+/* End of demo CSS */
+#DHTMLgoodies_panel_one,#DHTMLgoodies_arrows,#DHTMLgoodies_thumbs{	/* Width of divs for thumbnails */
+    width:240px;
+}
+#DHTMLgoodies_panel_one{
+    float:right;
+}
+#DHTMLgoodies_thumbs{
+    overflow:hidden;	/* Don't change this */
+    height:310px;	/* Height of thumbnail div */
+    position:relative;	/* Never change this */
+    float:left;
+}
+#DHTMLgoodies_largeImage{	/* Large image div */
+    width:464px;	/* Width of large image div */
+    height:310px;	/* Height of large image div */
+    float:left;
+    overflow: hidden;
+}
+#DHTMLgoodies_largeImage table{	/* Used table to get both horizontal and vertical center alignement of large image */
+    width:100%;
+    height:100%;
+    text-align:center;
+}
+#DHTMLgoodies_largeImage img{	/* Large image */
+    width: 100%;
+}
+
+
+.strip_of_thumbnails{	/* A vertical strip of thumbnails */
+    width:246px;	/* Width of strip */
+    position:absolute;
+
+}
+.strip_of_thumbnails div{
+    margin-bottom: 24px;
+    overflow: hidden;
+    width:100%;
+    height:150px;
+    text-align:center;
+
+}
+.strip_of_thumbnails img{
+    border:0px;
+    width: 100%;
+}
+.strip_of_thumbnails .activeImage{	/* Active thumbnail */
+    padding:0px;
+    width: 100%;
+
+}
+.leftArrow{
+    float:left;
+}
+.rightArrow{
+    float:right;
+}
+#DHTMLgoodies_thumbs_inner{
+    position:relative;	/* Never change this */
+    width:1000px;
+}

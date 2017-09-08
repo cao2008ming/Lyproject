@@ -1,0 +1,88 @@
+@charset "UTF-8";
+/*前端公共样式*/
+
+* {
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+}
+/*样式重构*/
+.panel{border-radius: 0px;}
+.layui-btn-success{background: #3cc31b}
+a:hover{text-decoration: none}
+.layui-main{width:1040px}
+.layui-nav{padding: 0px;}
+.header{background: #393D49}
+.header .login{float: right;display: inline-block;margin-top: 10px;}
+.header .user_info{float: right;display: inline-block;font-size: 16px;}
+.header .user_info dd:not(:last-child){border-bottom: 1px solid #ddd;}
+.header .user_info dd a{padding: 10px 20px;}
+.thumbnail{border-radius:0px;padding: 0px;}
+.thumbnail:hover{box-shadow: 0 2px 5px 0 rgba(0,0,0,.1)}
+.layui-form-onswitch i{left: 20px;}
+/*弹出层样式*/
+body .lvyou-class .layui-layer-title{background:#fe8a00; color:#fff; border: none;}
+body .lvyou-class .layui-layer-btn{border-top:1px solid #E9E7E7;}
+body .lvyou-class .layui-layer-btn a{background:#fff;color: #333333;
+    height:38px;line-height: 38px;}
+body .lvyou-class .layui-layer-btn .layui-layer-btn1{background:#1E9FFF;color: #fff}
+
+/*登录注册*/
+#login-box{padding-top: 12px;position: fixed}
+#login-box .layui-form-label{padding: 10px;}
+/*底部样式*/
+.footer{padding: 30px 0;line-height: 30px;background-color: #eee;color: #666;font-weight: 300}
+.footer .footer-logo{height: 110px}
+.footer .footer-ewm{height: 110px}
+
+/*logo*/
+.logo{height: 52px;}
+
+.copyright{text-align: center;margin-top: 16px;}
+.layui-field-title{border: 1px solid #e2e2e2}
+.layui-field-title .layui-field-box {padding: 20px;}
+
+/*主题色*/
+.layui-themes-color{color: #fe8a00}
+.layui-themes-color:hover{color:#fe4100}
+
+.layui-color-red{color: #d50000}
+
+/*广告*/
+.a-index-1{ width: 100%}
+.a-index-1 img{ width: 100%}
+
+/*右浮动*/
+.layui-float-right{float: right}
+
+.layui-wrap{padding: 38px 0px;}
+.layui-tab-title .layui-this:after{border:0px; }
+
+
+/*面包屑*/
+.breadcrumbs{padding: 16px 0;}
+/*box-shadow*/
+.shadow{box-shadow: 0 2px 5px 0 rgba(0,0,0,.1)}
+
+/*Star*/
+.star{height: 10px;background-position: -48px -62px;    background: url('../../images/icon_star.png') no-repeat;}
+.star-1{width: 12px}
+.star-2{width: 24px}
+.star-3{width: 36px}
+.star-4{width: 48px}
+.star-5{width: 60px}
+.item-overlay {
+    position: absolute;
+    z-index: 2;
+    width: inherit;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 5px;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

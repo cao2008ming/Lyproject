@@ -1,0 +1,14 @@
+@charset "utf-8";
+img{ border:0; cursor:pointer;}
+
+.citys-box{ width:1040px; height:500px;border:1px solid #DDDDDD; margin:10px auto; position:relative; overflow:hidden;}
+.citys-box:hover li{ background:#000;-webkit-transition:all 0.2s linear;-moz-transition:all 0.2s linear;-ms-transition:all 0.2s linear;-o-transition:all 0.2s linear;transition:all 0.2s linear;}
+.citys-box:hover img{ opacity:0.5;filter:alpha(opacity=50);-webkit-transition:all 0.2s linear;-moz-transition:all 0.2s linear;-ms-transition:all 0.2s linear;-o-transition:all 0.2s linear;transition:all 0.2s linear;}
+.citys-box li:hover img{ opacity:1;-webkit-transition:all 0.2s linear;-moz-transition:all 0.2s linear;-ms-transition:all 0.2s linear;-o-transition:all 0.2s linear;transition:all 0.2s linear;}
+.citys-box01{ width:705px; height:332px; position:absolute; left:0; top:0;}
+.citys-box02{ width:368px; height:165px; position:absolute; left:0; bottom:0;}
+.citys-box03{ width:165px; height:165px; position:absolute; left:372px; bottom:0;}
+.citys-box04{ width:165px; height:165px; position:absolute; left:540px; bottom:0;}
+.citys-box05{ width:332px; height:165px; position:absolute; right:0; top:0;}
+.citys-box06{ width:332px; height:165px; position:absolute; right:0; bottom:0;top: 167px;}
+.citys-box07{ width:332px; height:165px; position:absolute; right:0; bottom:0;}

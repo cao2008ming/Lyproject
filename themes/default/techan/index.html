@@ -1,0 +1,177 @@
+{extend name="base" /}
+{block name="css"}
+<link rel="stylesheet" href="__CSS__/home/banner.css">
+<link rel="stylesheet" href="__CSS__/home/techan-citys.css">
+<link rel="stylesheet" href="__CSS__/home/techan.css">
+{/block}
+{block name="body"}
+<!--    <div id="slideBox" class="slideBox">
+        <div class="hd">
+            <ul><li></li><li></li><li></li></ul>
+        </div>
+        <div class="bd">
+            <ul>
+                {volist name='slide' id='vo'}
+                    <li style="background: url({$vo.image}) 50% 0px no-repeat;">
+                        <a href="{$vo.link}" target="{$vo.target}" title="{$vo.name}"></a>
+                    </li>
+                {/volist}
+            </ul>
+        </div>
+    </div>-->
+    <div class="layui-main">
+        <div class="search">
+            <h3>目的地的选择</h3>
+            <span>总有一个地方让你流年忘返</span>
+            <form class="layui-form" action="">
+                <div class="layui-form-item">
+                    <div class="layui-inline input">
+                        <div class="layui-input-inline">
+                            <input type="text" name="title" lay-verify="title" autocomplete="off"
+                                   placeholder="搜索地方美食" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <div class="layui-input-inline submit">
+                            <button class="layui-btn layui-btn-big layui-btn-warm shadow" lay-submit=""
+                                    lay-filter="demo1">立即前往
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="citys">
+            <h3>热门地区美食推荐</h3>
+            <span>让您的旅行玩得开心、吃的放心</span>
+            <div class="citys-box">
+                <li class="citys-box01"><img src="__IMAGES__/home/techan/guiyang.jpg" width="704" height="332" /></li>
+                <li class="citys-box02"><img src="__IMAGES__/home/techan/anshun.jpg" width="368" height="165" /></li>
+                <li class="citys-box03"><img src="__IMAGES__/home/test/zzsc03.jpg" width="165" height="165" /></li>
+                <li class="citys-box04"><img src="__IMAGES__/home/test/zzsc04.jpg" width="165" height="165" /></li>
+                <li class="citys-box05"><img src="__IMAGES__/home/test/zzsc05.jpg" width="332" height="165" /></li>
+                <li class="citys-box06"><img src="__IMAGES__/home/test/zzsc06.jpg" width="332" height="165" /></li>
+                <li class="citys-box07"><img src="__IMAGES__/home/techan/more.jpg" width="332" height="165" /></li>
+            </div>
+        </div>
+    </div>
+    <div class="tuijian">
+        <div class="layui-main">
+            <h3>美食/特产推荐</h3>
+            <span class="sub-title">优质的没事让你吃上一口就能释怀</span>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="http://pic4.nipic.com/20091029/394013_134452073852_2.jpg" alt="...">
+                        <div class="caption">
+                            <h6>安順波波糖</h6>
+                            <!--<p>...</p>-->
+                            <p class="price">
+                               <span>￥<b>22</b></span>
+                               <span>已售 22</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="http://pic4.nipic.com/20091029/394013_134452073852_2.jpg" alt="...">
+                        <div class="caption">
+                            <h6>安順波波糖</h6>
+                            <!--<p>...</p>-->
+                            <p class="price">
+                               <span>￥<b>22</b></span>
+                               <span>已售 22</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="http://pic4.nipic.com/20091029/394013_134452073852_2.jpg" alt="...">
+                        <div class="caption">
+                            <h6>安順波波糖</h6>
+                            <!--<p>...</p>-->
+                            <p class="price">
+                               <span>￥<b>22</b></span>
+                               <span>已售 22</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="http://pic4.nipic.com/20091029/394013_134452073852_2.jpg" alt="...">
+                        <div class="caption">
+                            <h6>安順波波糖</h6>
+                            <!--<p>...</p>-->
+                            <p class="price">
+                               <span>￥<b>22</b></span>
+                               <span>已售 22</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="http://pic4.nipic.com/20091029/394013_134452073852_2.jpg" alt="...">
+                        <div class="caption">
+                            <h6>安順波波糖</h6>
+                            <!--<p>...</p>-->
+                            <p class="price">
+                               <span>￥<b>22</b></span>
+                               <span>已售 22</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="http://pic4.nipic.com/20091029/394013_134452073852_2.jpg" alt="...">
+                        <div class="caption">
+                            <h6>安順波波糖</h6>
+                            <!--<p>...</p>-->
+                            <p class="price">
+                               <span>￥<b>22</b></span>
+                               <span>已售 22</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="http://pic4.nipic.com/20091029/394013_134452073852_2.jpg" alt="...">
+                        <div class="caption">
+                            <h6>安順波波糖</h6>
+                            <!--<p>...</p>-->
+                            <p class="price">
+                               <span>￥<b>22</b></span>
+                               <span>已售 22</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="http://pic4.nipic.com/20091029/394013_134452073852_2.jpg" alt="...">
+                        <div class="caption">
+                            <h6>安順波波糖</h6>
+                            <!--<p>...</p>-->
+                            <p class="price">
+                               <span>￥<b>22</b></span>
+                               <span>已售 22</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--快速搜索2-->
+{/block}
+{block name="script"}
+<script src="__JS__/home/jquery.SuperSlide.2.1.1.js"></script>
+<script src="__JS__/home/switch.js"></script>
+<script src="__JS__/home/common.js"></script>
+<script src="__JS__/home/banner.js"></script>
+{/block}

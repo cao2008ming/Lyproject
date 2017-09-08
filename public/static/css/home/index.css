@@ -1,0 +1,60 @@
+@charset "utf-8";
+
+/**
+    index 样式
+    @author torans QQ:321870617@qq.com
+ */
+
+/*顶部广告*/
+.a-index-1{margin:20px 0; }
+/*Tab 样式*/
+.layui-tab-card>.layui-tab-title{list-style: none; display: inline;float: left;min-width: 122px;height: 100%; }
+.layui-tab-card>.layui-tab-title li{ display: block; height: 74px;line-height: 74px;background: #2478e3;color: #fff;border-top:1px dashed #ffffff;}
+.layui-tab-card>.layui-tab-title li:last-child{border-top:1px dashed #ffffff;}
+.layui-tab-card>.layui-tab-title li:first-child{border-top:0px dashed #2478e3;}
+.layui-tab-card>.layui-tab-title .layui-this{border-left: 5px solid #fe8a00;color: #2478e3;border-top:0px dashed #2478e3;}
+.layui-tab-card>.layui-tab-content{margin-left:140px;height: 296px;padding-right: 22px;}
+.layui-tab-card>.layui-tab-content .layui-form-item{margin-bottom:8px}
+.layui-tab-card>.layui-tab-content .layui-float-right{float: right;margin-top: -43px;}
+.layui-tab-card>.layui-tab-content .layui-input-block{margin-left: 88px;}
+.layui-tab-card>.layui-tab-content .layui-inline{margin-right: 0px}
+.layui-tab-card>.layui-tab-content .layui-inline .layui-input-inline{width: 96px;margin-right: 0px}
+.layui-tab-card>.layui-tab-content .layui-tab-item .layui-form-label{width: 88px;}
+.layui-tab-card>.layui-tab-content .layui-tab-item .layui-form-item{clear: none;}
+
+.layui-tab-brief>.layui-tab-title .layui-this {color: #2478e3;}
+.layui-tab-brief>.layui-tab-more li.layui-this:after, .layui-tab-brief>.layui-tab-title .layui-this:after{border-bottom: 3px solid #2478e3}
+
+/*热点资讯*/
+.news{height: 298px;border: 1px solid #ddd;box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);margin-top: 10px;}
+.news .news-title{padding: 8px;font-size: 16px;border-bottom: 3px solid #2577e4}
+.news .news-title .more{text-align: right;float: right}
+.news ul li{border-bottom: 1px dotted #dddddd;padding: 8px 16px ;}
+/*辅助*/
+.layui-elem-field legend{text-align: center;font-size: 32px;font-weight: 600;color: #7E8C8D}
+.layui-field-title .layui-field-box{text-align: center;font-size: 22px;font-weight: 100}
+.layui-field-title .layui-field-box span{font-size: 22px;font-weight: 100}
+/*九宫格*/
+.grids {background: rgb(251, 251, 251);padding: 20px 0;}
+.layui-grids {text-align: center;margin: 20px auto;}
+.layui-grids .col-md-3{padding: 20px;margin: 20px auto;}
+.layui-grids .col-md-3:hover{border: 1px solid #e2e2e2;margin: 19px auto;box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);}
+.layui-grids .col-md-3 a{color: #948364}
+.layui-grids .col-md-3 a:hover{color: #fe8a00;text-decoration: none}
+.layui-grids .col-md-3 img{width: 145px;}
+.layui-grids .col-md-3 span{display: block;font-size: 22px;margin-top: 20px;}
+
+/*快速搜索（底部上方）*/
+.search{background: url(../../images/home/search-bg.jpg) #DDDDDD;height: 290px;margin: 50px auto;padding: 10px 1px;}
+.search .form{margin-right: 10px;background: rgba(41, 37, 37, 0.49);padding: 10px;border-radius: 10px;}
+.search .form .layui-form-item{margin-bottom: 0px;}
+.search .form .layui-form-item .layui-form-label{font-size: 12px;color: #ffffff;font-style: italic;
+    padding:0px 10px;top: -5px;}
+.search .form .layui-form-item .layui-input-block{margin-left: 80px;min-height: 20px;}
+.search .form .layui-form-item .layui-input-block .layui-input{height: 24px;border-radius: 20px;}
+
+/*slogan*/
+.slogan{color: #ffffff;padding-bottom: 8px;}
+.slogan .h1{font-size: 36px;font-weight: 600;font-style: italic;display: inline;width: 33%;}
+.slogan .title{font-size: 14px;float: right;
+    width:67%;padding-left: 16px;}

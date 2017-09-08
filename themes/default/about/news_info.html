@@ -1,0 +1,34 @@
+{extend name="base" /}
+{block name='title'}{$info.title} -新闻中心 -{/block}
+{block name="css"}
+<link rel="stylesheet" href="__CSS__/home/about.css?{$Think.config.update_version}">
+{/block}
+{block name="body"}
+<div class="layui-main">
+    <div class="content-box row">
+        <div class="col-md-1">
+            <div class="about-nav"  id="side-bar">
+                <ul>
+                    <li><a href="{:url('/home/about/AboutUs')}">关于驴友</a></li>
+                    <li class="this"><a href="{:url('/home/news')}">新闻资讯</a></li>
+                    <li><a href="{:url('/home/about/joinUs')}">加入我们</a></li>
+                    <li><a href="{:url('/home/about/contactUs')}">联系我们</a></li>
+                    <li><a href="{:url('/home/about/notices')}">免责申明</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-11 box-right">
+            <h1 class="about-title">NEWS</h1>
+            <p class="company-title">{$info.title}</p>
+            <p class="company-en">发布：{$info.author} 时间:{$info.publish_time}</p>
+            <div class="clear"></div>
+            <div class="content">
+             {$info.content}
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script src="__JS__/home/about.js?{$Think.config.update_version}"></script>
+{/block}

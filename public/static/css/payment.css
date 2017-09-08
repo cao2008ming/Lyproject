@@ -1,0 +1,107 @@
+@charset "UTF-8";
+
+/*支付页面样式*/
+/*面包屑*/
+.breadcrumb-box{padding: 16px;}
+.steps{text-align: center}
+.steps .status-bar{width: 100%}
+
+.banner{height: 200px;background: url("../images/home/payment-banner.jpg") 0  65%;}
+
+.pay, .payment_box, .order_info{padding: 16px;border: 1px solid rgba(221, 221, 221, 0.43);margin:30px  0;}
+.order_info_title, .payment_box_title{border-bottom: 1px solid rgba(221, 221, 221, 0.43);padding: 16px;}
+.order_info_title h3, .payment_box_title h3{font-size: 28px;font-weight: 400;color: #666;}
+.order_info_content,.payment_box .ch{padding: 30px 16px;}
+.order_info_content div{font-size: 18px;}
+.order_info_content div a,.order_info_content div span{font-size: 18px;}
+.payment_box{padding: 24px;}
+.payment_box .ch{text-align: center}
+.payment_box .ch .up {padding: 16px 0;}
+.payment_box .ch .up_checked {background: #ddd;}
+.pay{padding-left: 50px;padding-right: 50px;}
+.pay .amount .layui-color-red{font-size: 24px;font-weight: 300}
+.pay .go_pay{text-align: right}
+.pay .go_pay button{font-weight: 600;}
+.ch {
+    margin: auto;
+    height: auto;
+    overflow: hidden;
+    font-size: 16px;
+}
+.ch .wx {
+    width: 20%;
+    min-width: 69px;
+    padding: 14px;
+    margin-right: 20%;
+    cursor: pointer;
+    display: block;
+    float: left;
+    text-align: center;
+    font-size: 16px;
+    display: none;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+}
+.ch .wx:hover {
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    color: #000000;
+}
+.ch .wx:active {
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    background-color: #f7f7f7;
+}
+
+.ch .up:hover {
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    color: #000000;
+}
+.ch .up:active {
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    background-color: #f7f7f7;
+}
+@media (max-width: 960px) {
+    .ch .up {
+        margin-right: 10%;
+    }
+}
+
+.ch .ap:hover {
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    color: #000000;
+}
+.ch .ap:active {
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    background-color: #f7f7f7;
+}
+.tips {
+    display: inline-block;
+    width: 100%;
+    padding: 14px;
+    background: #4d4d4d;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    position: fixed;
+    bottom: 0;
+    z-index: 1000;
+}

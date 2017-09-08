@@ -1,0 +1,227 @@
+{extend name="base" /}
+{block name="css"}
+<link href='__CSS__/calender/fullcalendar.css' rel='stylesheet'/>
+<link href='__CSS__/calender/fullcalendar.print.min.css' rel='stylesheet' media='print'/>
+<link rel="stylesheet" href="__CSS__/home/bus_info.css?{$Think.config.update_version}">
+{/block}
+{block name="body"}
+<div class="layui-main">
+    <div class="breadcrumbs">
+       <span class="layui-breadcrumb">
+          <a href="/">首页</a>
+          <a href="{:url('/home/bus/index')}">车辆租赁</a>
+          <a><cite>{$info.bus_name}</cite></a>
+        </span>
+    </div>
+    <div class="bus-info">
+        <div class="row">
+            <div class="col-md-4 thumb">
+                <img lay-scr='{$info.bus_thumb}' src="{$info.bus_thumb}" alt="{$info.bus_name}">
+            </div>
+            <div class="col-md-8">
+                <div class="info">
+                    <div class="bus-name">
+                        <h3>
+                            {$info.bus_name}
+                            <span>{$info.bus_zuowei}座/{$info.bus_dangwei|get_dangwei_info}</span>
+                        </h3>
+                    </div>
+                    <div class="bus-price">
+                        租车费<span class="price">{$info.bus_price}/天起</span>
+                        <span class="notice">起价说明<i class="layui-icon">&#xe60b;</i></span>
+                        <a href="" class="layui-btn  layui-btn-small layui-btn-success">联系客服</a>
+                        <span class="score">
+                       <span><font style="font-size: 18px;color: red">4.7</font>/5分</span>
+                       <!--<span class="comments">115条评论</span>-->
+                   </span>
+                    </div>
+                    <div class="service">租车公司：{$info.car_id|get_car_name}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bus-info">
+        <div class="row">
+            <div class="col-md-6 calendar-box">
+                <div id='calendar'></div>
+            </div>
+            <div class="col-md-6 quche-info">
+                <p>
+                    <span class="p-label">取车门店：</span>
+                    观山湖区贵阳北站
+                </p>
+                <p style="margin: 16px 0;">
+                    <span class="p-label">客服电话：</span>
+                    15555555555
+                </p>
+                <div class="address">
+                    {$info.bus_address}<br/>
+                    (若您需要我们提供接机服务，请务必事先电话联系我们。)
+                </div>
+                <div class="row">
+                    <div class="days col-md-7">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">取车时间：</label>
+                            <div class="layui-input-inline">
+                                <input class="layui-input" placeholder="开始日" id="LAY_days_s">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">还车时间：</label>
+                            <div class="layui-input-inline">
+                                <input class="layui-input" placeholder="开始日" id="LAY_days_e">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="queren col-md-5">
+                        <div class="queren-button">
+                            <a>立即预约</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="total">
+                    <p>
+                        <span class="p-label">共计天数：</span>
+                        5 天
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bus-content-box row">
+        <div class="left col-md-8">
+            <div class="left-nav">
+                <ul>
+                    <li>费用和违章须知</li>
+                    <li>保险说明</li>
+                    <li>取/换车说明</li>
+                    <li>多退少补</li>
+                    <li>客户点评</li>
+                </ul>
+            </div>
+            <div class="content-box">
+                <h3 class="box-title">费用和违章须知</h3>
+                <div class="content">
+                    {$info.bus_shuoming1}
+                </div>
+            </div>
+            <div class="content-box">
+                <h3 class="box-title">取/换车说明</h3>
+                <div class="content">
+                    {$info.bus_shuoming4}
+                </div>
+            </div>
+            <div class="content-box">
+                <h3 class="box-title">保险说明</h3>
+                <div class="content">
+                    {$info.bus_shuoming3}
+                </div>
+            </div>
+            <div class="content-box">
+                <h3 class="box-title">多退少补</h3>
+                <div class="content">
+                    {$info.bus_shuoming5}
+                </div>
+            </div>
+        </div>
+        <div class="right col-md-4">
+            <div class="rementuijian">
+                <h3>热门推荐</h3>
+                <ul>
+                    <li>
+                        <a href="#">
+                         <div class="row">
+                             <div class="thumb col-md-5">
+                                 <img lay-src='{$info.bus_thumb}' src="" alt="">
+                             </div>
+                             <div class="title col-md-7">
+                                 <p>豪华旅游大巴</p>
+                                 <p>￥ 200/天起</p>
+                             </div>
+                         </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                         <div class="row">
+                             <div class="thumb col-md-5">
+                                 <img lay-src='{$info.bus_thumb}' src="" alt="">
+                             </div>
+                             <div class="title col-md-7">
+                                 <p>豪华旅游大巴</p>
+                                 <p>￥ 200/天起</p>
+                             </div>
+                         </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                         <div class="row">
+                             <div class="thumb col-md-5">
+                                 <img lay-src='{$info.bus_thumb}' src="" alt="">
+                             </div>
+                             <div class="title col-md-7">
+                                 <p>豪华旅游大巴</p>
+                                 <p>￥ 200/天起</p>
+                             </div>
+                         </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                         <div class="row">
+                             <div class="thumb col-md-5">
+                                 <img lay-src='{$info.bus_thumb}' src="" alt="">
+                             </div>
+                             <div class="title col-md-7">
+                                 <p>豪华旅游大巴</p>
+                                 <p>￥ 200/天起</p>
+                             </div>
+                         </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                         <div class="row">
+                             <div class="thumb col-md-5">
+                                 <img lay-src='{$info.bus_thumb}' src="" alt="">
+                             </div>
+                             <div class="title col-md-7">
+                                 <p>豪华旅游大巴</p>
+                                 <p>￥ 200/天起</p>
+                             </div>
+                         </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script src='__JS__/home/common.js?{$Think.config.update_version}'></script>
+<script src='__JS__/calender/lib/moment.min.js'></script>
+<script src='__JS__/calender/lib/jquery.min.js'></script>
+<script src='__JS__/calender/fullcalendar.js'></script>
+<script src='__JS__/calender/locale/zh-cn.js'></script>
+<script src='__JS__/home/bus_info.js?{$Think.config.update_version}'></script>
+<script>
+    //日历
+    $(document).ready(function () {
+        var d = new Date();
+        var current = d.getFullYear() + "-0" + (d.getMonth() + 1) + "-0" + d.getDate();
+        $('#calendar').fullCalendar({
+            header: {
+                left: 'prev',
+                center: 'title',
+                right: 'next'
+            },
+            defaultDate: current,
+            firstDay: 7,
+            height: 354,
+            events: "{:url('/api/busplan/getplan')}",
+        });
+    });
+</script>
+{/block}

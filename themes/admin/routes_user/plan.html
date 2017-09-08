@@ -1,0 +1,71 @@
+{extend name="base" /}
+{block name="css"}
+<link href='__CSS__/calender/fullcalendar.css' rel='stylesheet' />
+<link href='__CSS__/calender/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+<style>
+    #calendar {
+        max-width: 920px;
+        margin: 16px auto;
+    }
+
+</style>
+{/block}
+{block name="body"}
+<div class="layui-body">
+    <div id='calendar'></div>
+</div>
+{/block}
+{block name="jquery"}
+<script src="__JS__/jquery.min.js"></script>
+<script src='__JS__/calender/lib/moment.min.js'></script>
+<script src='__JS__/calender/lib/jquery.min.js'></script>
+<script src='__JS__/calender/fullcalendar.js'></script>
+<script src='__JS__/calender/locale/zh-cn.js'></script>
+<!--<script src='__JS__/calender/fullcalendar.min.js'></script>-->
+<script>
+
+    $(document).ready(function() {
+        var d = new Date();
+        var current = d.getFullYear()+"-0"+(d.getMonth()+1)+"-0"+d.getDate();
+        $('#calendar').fullCalendar({
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+//                right: 'month,agendaWeek,agendaDay,listMonth'
+                right: 'month'
+            },
+
+            defaultDate: current,
+//            navLinks: true, // can click day/week names to navigate views
+//            businessHours: true, // display business hours
+            editable: true,
+            firstDay:1,
+            height:420,
+            events: "{:url('GuidePlan/getMyPlan')}",
+
+            dayClick: function(date, jsEvent, view) {
+                var backgroundColor = '';
+                var msg='';
+                $.ajax({
+                    method: "POST",
+                    url: "{:url('GuidePlan/changePlan')}",
+                    data: { date: date.format()},
+                    async:false,//设置为同步操作就可以给全局变量赋值成功
+                    success: function(result)
+                    {
+                        backgroundColor = result.backgroundColor;
+                        msg = result.message;
+                    }
+                })
+                layer.msg(msg);
+                $(this).css('background-color', backgroundColor);
+            }
+        });
+
+
+    });
+
+    //某一天被点击
+
+</script>
+{/block}

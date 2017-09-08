@@ -1,0 +1,287 @@
+{extend name="base" /}
+{block name="css"}
+<link rel="stylesheet" href="__CSS__/home/banner.css?{$Think.config.update_version}">
+<link rel="stylesheet" href="__CSS__/home/index.css?{$Think.config.update_version}">
+{/block}
+{block name="body"}
+<div id="slideBox" class="slideBox">
+    <div class="hd">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div class="bd">
+        <ul>
+            {volist name='slide' id='vo'}
+            <li style="background: url({$vo.image}) 50% 0px no-repeat;">
+                <a href="{$vo.link}" target="{$vo.target}" title="{$vo.name}"></a>
+            </li>
+            {/volist}
+        </ul>
+    </div>
+</div>
+<div class="layui-main">
+    <div class="a-index-1">
+        <a href="{$ad.link}" target="{$ad.target}">
+            <img src="{$ad.image}" alt="{$ad.name}" title="{$ad.name}">
+        </a>
+    </div>
+    <div class="row">
+        <!--tab 框-->
+        <div class="col-md-8">
+            <div class="layui-tab layui-tab-card">
+                <ul class="layui-tab-title tab-ul">
+                    <li class="layui-this">酒店</li>
+                    <li>导游</li>
+                    <li>车辆</li>
+                    <li>线路</li>
+                </ul>
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="layui-tab layui-tab-brief">
+                                    <ul class="layui-tab-title">
+                                        <li class="layui-this">酒店预订</li>
+                                    </ul>
+                                </div>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">目的地</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="title" required lay-verify="required"
+                                               placeholder="如:贵阳" autocomplete="off" class="layui-input">
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">入住日期</label>
+                                        <div class="layui-input-inline">
+                                            <input name="title" required lay-verify="required" placeholder="yyyy-mm-dd"
+                                                   class="layui-input" id="LAY_demorange_s">
+                                        </div>
+                                    </div>
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">退房日期</label>
+                                        <div class="layui-input-inline">
+                                            <input name="title" required lay-verify="required" placeholder="yyyy-mm-dd"
+                                                   class="layui-input" id="LAY_demorange_e">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">酒店星级</label>
+                                    <div class="layui-input-inline">
+                                        <select name="quiz1">
+                                            <option value="">请选择省</option>
+                                            <option value="浙江" selected="">浙江省</option>
+                                            <option value="你的工号">江西省</option>
+                                            <option value="你最喜欢的老师">福建省</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">关键词</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" name="title" required lay-verify="required"
+                                               placeholder="如酒店名称" autocomplete="off" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <center style="margin-top: 110px;">
+                                    <button class="layui-btn layui-btn-danger layui-btn-radius"
+                                            style="height: 70px;font-size: 18px;">搜索
+                                    </button>
+                                </center>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="layui-tab-item">2</div>
+                    <div class="layui-tab-item">3</div>
+                    <div class="layui-tab-item">4</div>
+                </div>
+            </div>
+        </div>
+        <!--视频-->
+        <div class="col-md-4">
+            <div class="news">
+                <div class="news-title">热点资讯
+                    <span class="more"><a href="{:url('/home/news')}">更多>></a></span>
+                </div>
+                <ul class="newsa">
+                    {volist name='news' id='vo'}
+                    <li>❈ <a href="{:url('/home/news/detail',['id'=>$vo.id])}">{$vo.title}</a></li>
+                    {/volist}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="grids">
+    <div class="layui-main">
+        <fieldset class="layui-elem-field layui-field-title">
+            <legend>选择我们就是一种标准</legend>
+            <div class="layui-field-box">
+                你在<span class="layui-themes-color">度假</span> ，一个私信、一条短信，他们和他们的<span
+                    class="layui-themes-color">伙伴都在</span>，随时<span class="layui-themes-color">呼应</span>你。
+            </div>
+        </fieldset>
+        <!--九宫格-->
+        <div class="row layui-grids">
+            <div class="col-md-3">
+                <a href="#">
+                    <img src="__IMAGES__/home/icon/index.png" title="">
+                    <span class="title">首页</span>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="#">
+                    <img src="__IMAGES__/home/icon/routes.png" title="">
+                    <span class="title">旅游线路</span>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="#">
+                    <img src="__IMAGES__/home/icon/guide.png" title="">
+                    <span class="title">导游</span>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="#">
+                    <img src="__IMAGES__/home/icon/bus.png" title="">
+                    <span class="title">车辆</span>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="#">
+                    <img src="__IMAGES__/home/icon/techan.png" title="">
+                    <span class="title">特产</span>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="#">
+                    <img src="__IMAGES__/home/icon/hotel.png" title="">
+                    <span class="title">酒店</span>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="#">
+                    <img src="__IMAGES__/home/icon/tejia.png" title="">
+                    <span class="title">特价</span>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="#">
+                    <img src="__IMAGES__/home/icon/about.png" title="">
+                    <span class="title">关于我们</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--快速搜索2-->
+<div class="layui-main">
+    <div class="search row">
+        <form class="layui-form col-md-offset-9 form" action="">
+            <div class="slogan">
+                <div class="h1">旅游</div>
+                <div class="title">一群人嗨翻天<br>Travel Plan</div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    目的地
+                    <br>
+                    Distination
+                </label>
+                <div class="layui-input-block">
+                    <input type="text" name="place" required lay-verify="required" autocomplete="off"
+                           class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    出发时间
+                    <br>
+                    Departure
+                </label>
+                <div class="layui-input-block">
+                    <input type="text" name="day" required onclick="layui.laydate({elem: this, festival: true})"
+                           class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    出游天数
+                    <br>
+                    Days
+                </label>
+                <div class="layui-input-block">
+                    <input type="number" name="title" required lay-verify="required" autocomplete="off"
+                           class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    出游人数
+                    <br>
+                    Number
+                </label>
+                <div class="layui-input-block">
+                    <input type="number" name="title" required lay-verify="required" autocomplete="off"
+                           class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn layui-btn-mini layui-btn-radius layui-btn-danger layui-float-right"
+                            lay-submit lay-filter="formDemo">&nbsp;下一步&nbsp;
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{/block}
+{block name="script"}
+
+<script src="__JS__/home/jquery.SuperSlide.2.1.1.js"></script>
+<script src="__JS__/home/switch.js"></script>
+<script src="__JS__/home/common.js"></script>
+<script src="__JS__/home/banner.js"></script>
+<script>
+    layui.use('layer', function () {
+        var layer = layui.layer;
+        layer.open({
+            type: 1,
+            title: false,
+            offset: 'rb',
+            shade: 0,
+            area: ['240px', '140px'],
+            content: '<div><a onclick="openVideo()"><img src="__IMAGES__/home/video.jpg" width="240px"></a></div>',
+            cancel: function () {
+                layer.msg('成功关闭，该窗口将永不显示')
+            }
+        });
+    });
+    function openVideo() {
+        var layer = layui.layer;
+        layer.open({
+            type: 1,
+            title: false,
+            shade: [0.8, '#000000'],
+            area: ['576px', '326px'],
+            content: '<video width="570" height="321" controls>' +
+            '<source src="http://www.runoob.com/try/demo_source/movie.mp4" type="video/mp4">' +
+            '<source src="http://www.runoob.com/try/demo_source/movie.ogg" type="video/ogg">' +
+            '您的浏览器不支持 HTML5 video 标签。' +
+            '</video>',
+            cancel: function () {
+                layer.msg('感谢您的观看')
+            }
+        });
+    }
+</script>
+{/block}

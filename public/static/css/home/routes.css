@@ -1,0 +1,42 @@
+@charset "utf-8";
+
+/*旅游线路*/
+/*@Author torans qq:321870617@qq.com*/
+
+
+body{background: #f8f8f8}
+.btn-lg, .btn-group-lg > .btn{border-radius: 0px;font-size: 14px;background: #f7f7f7}
+.btn-default:focus{border: 0px solid #ddd;background: #fff;box-shadow: 0 0 0 0 rgba(0,0,0,.1);color: #fe8a00}
+.btn-default.active{box-shadow: 0 0 0 0 rgba(0,0,0,.1);}
+/*筛选*/
+.search{background: #fff;padding: 40px;margin:30px 0;}
+.search .item-label{line-height:30px;font-size:18px;color:#333;width:76px;text-align: justify; text-align: end; text-align-last: justify; text-justify: distribute;}
+
+.search .item-search {display: flex;flex-direction: row;margin-bottom:30px;}
+.search .item-search:last-child{margin-bottom:0px;}
+.search .item-search ul{display: block;margin-left: 30px;height: 30px;}
+.search .item-search ul li{float:left;height: 30px;line-height:30px;margin-right:34px;font-size: 16px;color: #666 }
+.search .item-search ul .layui-this{background: #00a0e9;padding: 0px 10px;color: #fff;border-radius: 3px;}
+
+/*列表*/
+.left-box{}
+.left-box .list-tool{background: #f1f1f1}
+.left-box .list-tool span{float: right;padding-right: 16px;margin-top:12px;color: #666666}
+
+.left-box .list-box{margin:26px 0;background: #fff;padding: 14px 28px;}
+.left-box .list-box li{border-bottom: 1px solid #ddd;padding-bottom: 28px;padding-top: 20px;}
+.left-box .list-box li:hover{background: #ddd}
+.left-box .list-box li .thumb-box img{width: 100%;}
+
+.left-box .list-box li .info-box{}
+.left-box .list-box li .info-box .price,.left-box .list-box li .info-box .line,.left-box .list-box li .info-box .author{height: 25px;line-height: 25px;}
+.left-box .list-box li .info-box .title{font-size: 18px;color: #666}
+.left-box .list-box li .info-box .price{font-size: 14px;color: #888}
+.left-box .list-box li .info-box .price span{margin-right: 20px;}
+.left-box .list-box li .info-box .line{color: #777;font-size: 14px;}
+.left-box .list-box li .info-box .author{color: #888;font-size: 14px;}
+.left-box .list-box li .info-box .author span{color: #fe8a00;font-size: 14px;}
+
+.left-box .list-box li .button-box{top:24px;}
+.left-box .list-box li .button-box span{padding:14px;width: 60px;line-height:16px;height:60px;display:block;color:#fff;text-align:center;font-size: 16px;background: #fe8a00;border-radius: 44px;}
+
